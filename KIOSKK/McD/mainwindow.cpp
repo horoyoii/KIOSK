@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
    //==============================================================================
     ui->setupUi(this);
     QPixmap pix("C:\\Users\\friend\\GitHub\\KIOSK\\KIOSKK\\McD\\image\\banner.jpg");
-    ui->label->setPixmap(pix);
+    ui->banner->setPixmap(pix);
 
 
 
