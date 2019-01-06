@@ -3,7 +3,7 @@
 # Project created by QtCreator 2019-01-02T16:50:10
 #
 #-------------------------------------------------
-QT       += core gui sql
+QT       += core gui sql quickwidgets quick
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = McD
@@ -24,14 +24,24 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    basket.cpp
+    basket.cpp \
+    mydatabase.cpp \
+    item.cpp \
+    databasehandler.cpp \
+    detailwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    basket.h
+    basket.h \
+    mydatabase.h \
+    item.h \
+    databasehandler.h \
+    detailwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    detailwindow.ui \
+    detailwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,4 +49,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    myimage.qrc
+    myimage.qrc \
+    res.qrc
+
+DISTFILES +=

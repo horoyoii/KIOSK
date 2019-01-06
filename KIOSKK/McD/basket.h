@@ -12,8 +12,7 @@ private:
     map<string, int> List;
 
 public:
-    explicit Basket()
-        :totalSum(0){}
+    explicit Basket();
     int getTotalSum() const;
     map<string, int> getList() const;
 

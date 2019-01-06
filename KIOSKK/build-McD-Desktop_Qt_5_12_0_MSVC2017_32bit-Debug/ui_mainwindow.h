@@ -13,18 +13,16 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
+#include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "QtQuickWidgets/QQuickWidget"
 
 QT_BEGIN_NAMESPACE
 
@@ -32,26 +30,22 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout;
-    QVBoxLayout *Parent;
-    QLabel *banner;
-    QVBoxLayout *verticalLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QGridLayout *gridLayout_3;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_3;
-    QGridLayout *gridLayout_2;
-    QPushButton *pushButton_2;
-    QLabel *label;
-    QPushButton *pushButton;
-    QTableView *tableView;
+    QGridLayout *gridLayout;
+    QQuickWidget *quickWidget;
     QWidget *tab_2;
-    QLabel *basket;
-    QListWidget *orderlist;
-    QHBoxLayout *horizontalLayout_2;
+    QGridLayout *gridLayout_2;
+    QQuickWidget *quickWidget_2;
+    QWidget *tab_3;
+    QWidget *tab_4;
+    QListView *listView;
+    QWidget *layoutWidget;
+    QHBoxLayout *OrderButton;
     QPushButton *btn_cancel;
     QPushButton *btn_order;
+    QLabel *basketLabel;
+    QLabel *banner;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -60,19 +54,75 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1080, 1650);
+        MainWindow->resize(1058, 1026);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        gridLayout = new QGridLayout(centralWidget);
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setGeometry(QRect(40, 130, 901, 521));
+        tabWidget->setTabPosition(QTabWidget::West);
+        tabWidget->setIconSize(QSize(100, 100));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        gridLayout = new QGridLayout(tab);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        Parent = new QVBoxLayout();
-        Parent->setSpacing(6);
-        Parent->setObjectName(QString::fromUtf8("Parent"));
+        quickWidget = new QQuickWidget(tab);
+        quickWidget->setObjectName(QString::fromUtf8("quickWidget"));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+        gridLayout->addWidget(quickWidget, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        gridLayout_2 = new QGridLayout(tab_2);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        quickWidget_2 = new QQuickWidget(tab_2);
+        quickWidget_2->setObjectName(QString::fromUtf8("quickWidget_2"));
+        quickWidget_2->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+        gridLayout_2->addWidget(quickWidget_2, 0, 0, 1, 1);
+
+        tabWidget->addTab(tab_2, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        tabWidget->addTab(tab_4, QString());
+        listView = new QListView(centralWidget);
+        listView->setObjectName(QString::fromUtf8("listView"));
+        listView->setGeometry(QRect(0, 780, 891, 131));
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(200, 930, 731, 30));
+        OrderButton = new QHBoxLayout(layoutWidget);
+        OrderButton->setSpacing(6);
+        OrderButton->setContentsMargins(11, 11, 11, 11);
+        OrderButton->setObjectName(QString::fromUtf8("OrderButton"));
+        OrderButton->setSizeConstraint(QLayout::SetNoConstraint);
+        OrderButton->setContentsMargins(0, 0, 0, 0);
+        btn_cancel = new QPushButton(layoutWidget);
+        btn_cancel->setObjectName(QString::fromUtf8("btn_cancel"));
+
+        OrderButton->addWidget(btn_cancel);
+
+        btn_order = new QPushButton(layoutWidget);
+        btn_order->setObjectName(QString::fromUtf8("btn_order"));
+
+        OrderButton->addWidget(btn_order);
+
+        basketLabel = new QLabel(centralWidget);
+        basketLabel->setObjectName(QString::fromUtf8("basketLabel"));
+        basketLabel->setGeometry(QRect(0, 740, 1061, 16));
+        basketLabel->setScaledContents(false);
         banner = new QLabel(centralWidget);
         banner->setObjectName(QString::fromUtf8("banner"));
+        banner->setGeometry(QRect(0, 0, 1061, 121));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -80,103 +130,10 @@ public:
         banner->setSizePolicy(sizePolicy);
         banner->setScaledContents(true);
         banner->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-
-        Parent->addWidget(banner);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        tabWidget = new QTabWidget(centralWidget);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setTabPosition(QTabWidget::West);
-        tab = new QWidget();
-        tab->setObjectName(QString::fromUtf8("tab"));
-        gridLayout_3 = new QGridLayout(tab);
-        gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        pushButton_4 = new QPushButton(tab);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-
-        gridLayout_3->addWidget(pushButton_4, 1, 0, 1, 1);
-
-        pushButton_3 = new QPushButton(tab);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        gridLayout_3->addWidget(pushButton_3, 2, 0, 1, 1);
-
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setSpacing(6);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        pushButton_2 = new QPushButton(tab);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        gridLayout_2->addWidget(pushButton_2, 0, 1, 1, 1);
-
-        label = new QLabel(tab);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setMinimumSize(QSize(509, 0));
-
-        gridLayout_2->addWidget(label, 3, 0, 1, 1);
-
-        pushButton = new QPushButton(tab);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        gridLayout_2->addWidget(pushButton, 0, 0, 1, 1);
-
-        tableView = new QTableView(tab);
-        tableView->setObjectName(QString::fromUtf8("tableView"));
-
-        gridLayout_2->addWidget(tableView, 3, 1, 1, 1);
-
-
-        gridLayout_3->addLayout(gridLayout_2, 0, 0, 1, 1);
-
-        tabWidget->addTab(tab, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        tabWidget->addTab(tab_2, QString());
-
-        verticalLayout->addWidget(tabWidget);
-
-        basket = new QLabel(centralWidget);
-        basket->setObjectName(QString::fromUtf8("basket"));
-
-        verticalLayout->addWidget(basket);
-
-        orderlist = new QListWidget(centralWidget);
-        orderlist->setObjectName(QString::fromUtf8("orderlist"));
-        orderlist->setEnabled(false);
-        orderlist->setMinimumSize(QSize(1054, 734));
-
-        verticalLayout->addWidget(orderlist);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        btn_cancel = new QPushButton(centralWidget);
-        btn_cancel->setObjectName(QString::fromUtf8("btn_cancel"));
-
-        horizontalLayout_2->addWidget(btn_cancel);
-
-        btn_order = new QPushButton(centralWidget);
-        btn_order->setObjectName(QString::fromUtf8("btn_order"));
-
-        horizontalLayout_2->addWidget(btn_order);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
-
-        Parent->addLayout(verticalLayout);
-
-
-        gridLayout->addLayout(Parent, 0, 0, 1, 1);
-
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1080, 26));
+        menuBar->setGeometry(QRect(0, 0, 1058, 26));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -187,7 +144,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -196,17 +153,14 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        banner->setText(QString());
-        pushButton_4->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_3->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        pushButton->setText(QApplication::translate("MainWindow", "PushButton", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", nullptr));
-        basket->setText(QApplication::translate("MainWindow", "\354\236\245\353\260\224\352\265\254\353\213\210", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QString());
         btn_cancel->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\354\267\250\354\206\214", nullptr));
         btn_order->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\355\225\230\352\270\260", nullptr));
+        basketLabel->setText(QApplication::translate("MainWindow", "\354\236\245\353\260\224\352\265\254\353\213\210", nullptr));
+        banner->setText(QString());
     } // retranslateUi
 
 };

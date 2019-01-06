@@ -243,9 +243,13 @@ Makefile: ..\McD\McD.pro C:\Qt\5.12.0\msvc2017\mkspecs\win32-msvc\qmake.conf C:\
 		C:\Qt\5.12.0\msvc2017\mkspecs\features\yacc.prf \
 		C:\Qt\5.12.0\msvc2017\mkspecs\features\lex.prf \
 		..\McD\McD.pro \
+		C:\Qt\5.12.0\msvc2017\lib\Qt5QuickWidgets.prl \
+		C:\Qt\5.12.0\msvc2017\lib\Qt5Quick.prl \
 		C:\Qt\5.12.0\msvc2017\lib\Qt5Widgets.prl \
 		C:\Qt\5.12.0\msvc2017\lib\Qt5Gui.prl \
 		C:\Qt\5.12.0\msvc2017\lib\Qt5Sql.prl \
+		C:\Qt\5.12.0\msvc2017\lib\Qt5Qml.prl \
+		C:\Qt\5.12.0\msvc2017\lib\Qt5Network.prl \
 		C:\Qt\5.12.0\msvc2017\lib\Qt5Core.prl \
 		C:\Qt\5.12.0\msvc2017\lib\qtmaind.prl
 	$(QMAKE) -o Makefile ..\McD\McD.pro -spec win32-msvc "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -417,9 +421,13 @@ C:\Qt\5.12.0\msvc2017\mkspecs\features\exceptions.prf:
 C:\Qt\5.12.0\msvc2017\mkspecs\features\yacc.prf:
 C:\Qt\5.12.0\msvc2017\mkspecs\features\lex.prf:
 ..\McD\McD.pro:
+C:\Qt\5.12.0\msvc2017\lib\Qt5QuickWidgets.prl:
+C:\Qt\5.12.0\msvc2017\lib\Qt5Quick.prl:
 C:\Qt\5.12.0\msvc2017\lib\Qt5Widgets.prl:
 C:\Qt\5.12.0\msvc2017\lib\Qt5Gui.prl:
 C:\Qt\5.12.0\msvc2017\lib\Qt5Sql.prl:
+C:\Qt\5.12.0\msvc2017\lib\Qt5Qml.prl:
+C:\Qt\5.12.0\msvc2017\lib\Qt5Network.prl:
 C:\Qt\5.12.0\msvc2017\lib\Qt5Core.prl:
 C:\Qt\5.12.0\msvc2017\lib\qtmaind.prl:
 qmake: FORCE

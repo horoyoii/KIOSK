@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>swipe.qml</file>
+        <file>Page1Form.ui.qml</file>
+        <file>Page2Form.ui.qml</file>
+        <file>image/bg_btd2.jpg</file>
+        <file>image/bg_double_bul.jpg</file>
+        <file>image/bg_lucky_gold.jpg</file>
+        <file>image/bg_ss.jpg</file>
+        <file>image/BTD.jpg</file>
+        <file>image/GEC.jpg</file>
+        <file>image/Sanghai.jpg</file>
+        <file>image/Big.jpg</file>
+        <file>image/1955.jpg</file>
+    </qresource>
+</RCC>
