@@ -20,19 +20,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
    // Setting Images & Size & QuickWidget=========================================================
     ui->setupUi(this);
-    //ui->quickWidget->rootContext()->setContextProperty("MainWindow", this);
-    //ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/swipe.qml")));
 
-    ui->quickWidget_2->rootContext()->setContextProperty("MainWindow", this);
-    ui->quickWidget_2->setSource(QUrl(QStringLiteral("qrc:/swipe.qml")));
-
+    setSwipeView();
     setLayoutSize();
     setTabIcon();
 
     // Create a Basket & Get Itmems from DB ========================================
     basket = new Basket();
     items = new MyDatabase();
-
 
 
     //=============================================================================
@@ -45,10 +40,16 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 
+void MainWindow::setSwipeView(){
+    ui->quickWidget_2->rootContext()->setContextProperty("MainWindow", this);
+    ui->quickWidget_2->setSource(QUrl(QStringLiteral("qrc:/swipe.qml")));
+}
+
 void MainWindow::setLayoutSize(){
     QPixmap pix("C:\\Users\\friend\\GitHub\\KIOSK\\KIOSKK\\McD\\image\\banner.jpg");
     ui->banner->setPixmap(pix);
     ui->banner->setFixedSize(760, 170);
+
     ui->tabWidget->setGeometry(0, 170, 760, 600);
 
     ui->basketLabel->setGeometry(0, 770, 760, 25);
@@ -106,7 +107,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
 
 
 void MainWindow::ShowBurgerInfoDetails(QString name){
-    DetailWindow *dw = new DetailWindow(nullptr, name);
+    DetailWindow *dw = new DetailWindow(nullptr, name, items);
     dw->show();
 
 }
@@ -123,7 +124,7 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_pushButton_clicked(){
-    //ui->label->setText("clicked");
+
 
 }
 

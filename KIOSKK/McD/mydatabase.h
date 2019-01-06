@@ -24,6 +24,7 @@ public:
     std::vector<Item> getArrayRecommand() const;
     std::vector<Item> getArrayDrink() const;
 
+
 };
 
 #endif // MYDATABASE_H

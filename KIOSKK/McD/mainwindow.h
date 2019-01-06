@@ -22,6 +22,7 @@ private:
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *ev);
+    void setSwipeView();
     void setTabIcon();
     void setLayoutSize();
     void UpdateItemListIntoWidget();

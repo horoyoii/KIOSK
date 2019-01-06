@@ -28,7 +28,8 @@ SOURCES += \
     mydatabase.cpp \
     item.cpp \
     databasehandler.cpp \
-    detailwindow.cpp
+    detailwindow.cpp \
+    globalhelper.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -36,7 +37,8 @@ HEADERS += \
     mydatabase.h \
     item.h \
     databasehandler.h \
-    detailwindow.h
+    detailwindow.h \
+    globalhelper.h
 
 FORMS += \
         mainwindow.ui \
