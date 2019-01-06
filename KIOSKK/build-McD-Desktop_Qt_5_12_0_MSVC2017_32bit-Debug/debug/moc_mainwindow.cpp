@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[7];
-    char stringdata0[61];
+    QByteArrayData data[6];
+    char stringdata0[56];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,13 +34,12 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 12), // "UpdateBasket"
 QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 4), // "Item"
-QT_MOC_LITERAL(4, 30, 3), // "arg"
-QT_MOC_LITERAL(5, 34, 21), // "ShowBurgerInfoDetails"
-QT_MOC_LITERAL(6, 56, 4) // "name"
+QT_MOC_LITERAL(3, 25, 3), // "arg"
+QT_MOC_LITERAL(4, 29, 21), // "ShowBurgerInfoDetails"
+QT_MOC_LITERAL(5, 51, 4) // "name"
 
     },
-    "MainWindow\0UpdateBasket\0\0Item\0arg\0"
+    "MainWindow\0UpdateBasket\0\0arg\0"
     "ShowBurgerInfoDetails\0name"
 };
 #undef QT_MOC_LITERAL
@@ -62,13 +61,13 @@ static const uint qt_meta_data_MainWindow[] = {
        1,    1,   24,    2, 0x08 /* Private */,
 
  // methods: name, argc, parameters, tag, flags
-       5,    1,   27,    2, 0x02 /* Public */,
+       4,    1,   27,    2, 0x02 /* Public */,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QString,    3,
 
  // methods: parameters
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString,    5,
 
        0        // eod
 };
@@ -79,7 +78,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->UpdateBasket((*reinterpret_cast< const Item(*)>(_a[1]))); break;
+        case 0: _t->UpdateBasket((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->ShowBurgerInfoDetails((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }

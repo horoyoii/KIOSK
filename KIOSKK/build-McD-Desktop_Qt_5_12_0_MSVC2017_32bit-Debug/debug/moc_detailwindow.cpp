@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DetailWindow_t {
-    QByteArrayData data[9];
-    char stringdata0[125];
+    QByteArrayData data[8];
+    char stringdata0[120];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,16 +34,15 @@ static const qt_meta_stringdata_DetailWindow_t qt_meta_stringdata_DetailWindow =
 QT_MOC_LITERAL(0, 0, 12), // "DetailWindow"
 QT_MOC_LITERAL(1, 13, 17), // "SignalToMainClass"
 QT_MOC_LITERAL(2, 31, 0), // ""
-QT_MOC_LITERAL(3, 32, 4), // "Item"
-QT_MOC_LITERAL(4, 37, 3), // "arg"
-QT_MOC_LITERAL(5, 41, 17), // "on_Cancel_clicked"
-QT_MOC_LITERAL(6, 59, 21), // "on_btn_larger_clicked"
-QT_MOC_LITERAL(7, 81, 21), // "on_btn_normal_clicked"
-QT_MOC_LITERAL(8, 103, 21) // "on_btn_single_clicked"
+QT_MOC_LITERAL(3, 32, 3), // "arg"
+QT_MOC_LITERAL(4, 36, 17), // "on_Cancel_clicked"
+QT_MOC_LITERAL(5, 54, 21), // "on_btn_larger_clicked"
+QT_MOC_LITERAL(6, 76, 21), // "on_btn_normal_clicked"
+QT_MOC_LITERAL(7, 98, 21) // "on_btn_single_clicked"
 
     },
-    "DetailWindow\0SignalToMainClass\0\0Item\0"
-    "arg\0on_Cancel_clicked\0on_btn_larger_clicked\0"
+    "DetailWindow\0SignalToMainClass\0\0arg\0"
+    "on_Cancel_clicked\0on_btn_larger_clicked\0"
     "on_btn_normal_clicked\0on_btn_single_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -65,13 +64,13 @@ static const uint qt_meta_data_DetailWindow[] = {
        1,    1,   39,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   42,    2, 0x08 /* Private */,
-       6,    0,   43,    2, 0x08 /* Private */,
-       7,    0,   44,    2, 0x08 /* Private */,
-       8,    0,   45,    2, 0x08 /* Private */,
+       4,    0,   42,    2, 0x08 /* Private */,
+       5,    0,   43,    2, 0x08 /* Private */,
+       6,    0,   44,    2, 0x08 /* Private */,
+       7,    0,   45,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -88,7 +87,7 @@ void DetailWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         DetailWindow *_t = static_cast<DetailWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->SignalToMainClass((*reinterpret_cast< const Item(*)>(_a[1]))); break;
+        case 0: _t->SignalToMainClass((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->on_Cancel_clicked(); break;
         case 2: _t->on_btn_larger_clicked(); break;
         case 3: _t->on_btn_normal_clicked(); break;
@@ -98,7 +97,7 @@ void DetailWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (DetailWindow::*)(const Item & );
+            using _t = void (DetailWindow::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DetailWindow::SignalToMainClass)) {
                 *result = 0;
                 return;
@@ -148,7 +147,7 @@ int DetailWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void DetailWindow::SignalToMainClass(const Item & _t1)
+void DetailWindow::SignalToMainClass(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

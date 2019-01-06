@@ -33,7 +33,7 @@ public:
 
 
 private slots:
-    void UpdateBasket(const Item &arg);
+    void UpdateBasket(QString arg);
 };
 
 #endif // MAINWINDOW_H

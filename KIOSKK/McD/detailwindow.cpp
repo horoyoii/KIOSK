@@ -46,6 +46,7 @@ void DetailWindow::SetIconImage(){
 
 void DetailWindow::SetBurgerName(QString name){
     // Set Burger Name===========================================
+    BasicName = name;
     QString FullName = GlobalHelper::GetFullName(name);
     ui->bg_name->setText(FullName);
     ui->single_text->setText(FullName);
@@ -62,6 +63,7 @@ void DetailWindow::SetBurgerPrice(QString name, MyDatabase *items){
             break;
         }
     }
+    BasicPrice = price;
     ui->Single_price->setText(QString::number(price));
     ui->Normal_price->setText(QString::number(price + 1200));
     ui->Larger_price->setText(QString::number(price + 1800));
@@ -92,20 +94,29 @@ void DetailWindow::on_Cancel_clicked(){
 
 
 void DetailWindow::on_btn_larger_clicked(){
-    const Item item("abae", 120);
-    emit SignalToMainClass(item);
+    //Info to pass : name $ option $ price $
+    QString arg = BasicName+"$";
+    arg+="L$";
+    arg+=QString::number(BasicPrice)+"$";
+    emit SignalToMainClass(arg);
     this->close();
 }
 
 void DetailWindow::on_btn_normal_clicked(){
 
-    //emit SignalToMainClass();
+    QString arg = BasicName+"$";
+    arg+="N$";
+    arg+=QString::number(BasicPrice)+"$";
+    emit SignalToMainClass(arg);
     this->close();
 }
 
 void DetailWindow::on_btn_single_clicked(){
 
-    //emit SignalToMainClass();
+    QString arg = BasicName+"$";
+    arg+="S$";
+    arg+=QString::number(BasicPrice)+"$";
+    emit SignalToMainClass(arg);
     this->close();
 }
 

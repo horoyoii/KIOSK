@@ -27,7 +27,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <property name="iconSize">
      <size>
@@ -74,45 +74,6 @@
      </attribute>
     </widget>
    </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>780</y>
-      <width>891</width>
-      <height>131</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>930</y>
-      <width>731</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="OrderButton">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetNoConstraint</enum>
-     </property>
-     <item>
-      <widget class="QPushButton" name="btn_cancel">
-       <property name="text">
-        <string>주문취소</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_order">
-       <property name="text">
-        <string>주문하기</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="basketLabel">
     <property name="geometry">
      <rect>
@@ -123,7 +84,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>장바구니</string>
+     <string>  장바구니</string>
     </property>
     <property name="scaledContents">
      <bool>false</bool>
@@ -154,17 +115,56 @@
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QPushButton" name="btn_cancel">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>810</y>
-      <width>211</width>
-      <height>31</height>
+      <y>950</y>
+      <width>361</width>
+      <height>28</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>주문취소</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_order">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>950</y>
+      <width>331</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>주문하기</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="basketList">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>770</y>
+      <width>921</width>
+      <height>151</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -186,7 +186,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

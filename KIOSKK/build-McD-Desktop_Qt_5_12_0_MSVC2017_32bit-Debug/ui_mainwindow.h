@@ -12,13 +12,11 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -39,17 +37,13 @@ public:
     QQuickWidget *quickWidget_2;
     QWidget *tab_3;
     QWidget *tab_4;
-    QListView *listView;
-    QWidget *layoutWidget;
-    QHBoxLayout *OrderButton;
-    QPushButton *btn_cancel;
-    QPushButton *btn_order;
     QLabel *basketLabel;
     QLabel *banner;
-    QLabel *label;
+    QPushButton *btn_cancel;
+    QPushButton *btn_order;
+    QListWidget *basketList;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
-    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -95,28 +89,6 @@ public:
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
         tabWidget->addTab(tab_4, QString());
-        listView = new QListView(centralWidget);
-        listView->setObjectName(QString::fromUtf8("listView"));
-        listView->setGeometry(QRect(0, 780, 891, 131));
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(200, 930, 731, 30));
-        OrderButton = new QHBoxLayout(layoutWidget);
-        OrderButton->setSpacing(6);
-        OrderButton->setContentsMargins(11, 11, 11, 11);
-        OrderButton->setObjectName(QString::fromUtf8("OrderButton"));
-        OrderButton->setSizeConstraint(QLayout::SetNoConstraint);
-        OrderButton->setContentsMargins(0, 0, 0, 0);
-        btn_cancel = new QPushButton(layoutWidget);
-        btn_cancel->setObjectName(QString::fromUtf8("btn_cancel"));
-
-        OrderButton->addWidget(btn_cancel);
-
-        btn_order = new QPushButton(layoutWidget);
-        btn_order->setObjectName(QString::fromUtf8("btn_order"));
-
-        OrderButton->addWidget(btn_order);
-
         basketLabel = new QLabel(centralWidget);
         basketLabel->setObjectName(QString::fromUtf8("basketLabel"));
         basketLabel->setGeometry(QRect(0, 740, 1061, 16));
@@ -131,9 +103,22 @@ public:
         banner->setSizePolicy(sizePolicy);
         banner->setScaledContents(true);
         banner->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(40, 810, 211, 31));
+        btn_cancel = new QPushButton(centralWidget);
+        btn_cancel->setObjectName(QString::fromUtf8("btn_cancel"));
+        btn_cancel->setGeometry(QRect(40, 950, 361, 28));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Century Gothic"));
+        font.setPointSize(16);
+        font.setBold(true);
+        font.setWeight(75);
+        btn_cancel->setFont(font);
+        btn_order = new QPushButton(centralWidget);
+        btn_order->setObjectName(QString::fromUtf8("btn_order"));
+        btn_order->setGeometry(QRect(650, 950, 331, 28));
+        btn_order->setFont(font);
+        basketList = new QListWidget(centralWidget);
+        basketList->setObjectName(QString::fromUtf8("basketList"));
+        basketList->setGeometry(QRect(40, 770, 921, 151));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -142,13 +127,10 @@ public:
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -161,11 +143,10 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QString());
+        basketLabel->setText(QApplication::translate("MainWindow", "  \354\236\245\353\260\224\352\265\254\353\213\210", nullptr));
+        banner->setText(QString());
         btn_cancel->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\354\267\250\354\206\214", nullptr));
         btn_order->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\355\225\230\352\270\260", nullptr));
-        basketLabel->setText(QApplication::translate("MainWindow", "\354\236\245\353\260\224\352\265\254\353\213\210", nullptr));
-        banner->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

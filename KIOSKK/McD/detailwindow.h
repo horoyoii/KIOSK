@@ -21,11 +21,11 @@ public:
 private slots:
     void on_Cancel_clicked(void);
 
-    void on_btn_larger_clicked();
+    void on_btn_larger_clicked(void);
 
-    void on_btn_normal_clicked();
+    void on_btn_normal_clicked(void);
 
-    void on_btn_single_clicked();
+    void on_btn_single_clicked(void);
 
 
 private:
@@ -36,8 +36,11 @@ private:
     void SetBurgerPrice(QString name, MyDatabase *items);
     void SetMainImage(QString name);
 
+    QString BasicName;
+    int BasicPrice;
+
 signals:
-    void SignalToMainClass(const Item &arg);
+    void SignalToMainClass(QString arg);
 };
 
 #endif // DETAILWINDOW_H

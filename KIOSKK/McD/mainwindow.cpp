@@ -8,6 +8,9 @@
 #include "mydatabase.h"
 #include"detailwindow.h"
 #include <QtCore/QCoreApplication>
+#include<QListWidgetItem>
+#include<QAbstractItemModel>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -37,13 +40,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
+
+
+
+
 }
 
-void MainWindow::UpdateBasket(const Item &arg){
-    QString str =arg.getName();
-    ui->label->setText("awefawef");
-    qDebug("HEllo>");
-    qDebug()<<str;
+void MainWindow::UpdateBasket(QString arg){
+    ui->basketList->addItem(arg);
+    ui->basketList->setFont(QFont("Century Gothic",14));
+    qDebug()<<arg;
 }
 
 void MainWindow::setSwipeView(){
@@ -56,10 +62,30 @@ void MainWindow::setLayoutSize(){
     ui->banner->setPixmap(pix);
     ui->banner->setFixedSize(760, 170);
 
-    ui->tabWidget->setGeometry(0, 170, 760, 600);
+    ui->tabWidget->setGeometry(0, 170, 760, 590);
 
-    ui->basketLabel->setGeometry(0, 770, 760, 25);
+    ui->basketLabel->setGeometry(0, 735, 760, 25);
     ui->basketLabel->setStyleSheet("QLabel { background-color : red; color : white}");
+
+    ui->basketList->setGeometry(0, 760, 760, 200);
+
+    ui->btn_cancel->setGeometry(40, 960, 300, 50);
+
+    ui->btn_cancel->setStyleSheet("background-color: red;"
+                "border-style:solid;"
+                                  "border-width: 2px;"
+                                  "border-color: #999999;"
+                                  "border-radius: 10px;"
+                                  "color: #ffffff");
+    ui->btn_order->setGeometry(410, 960, 300, 50);
+    ui->btn_order->setStyleSheet("background-color: red;"
+                "border-style:solid;"
+                                  "border-width: 2px;"
+                                  "border-color: #999999;"
+                                  "border-radius: 10px;"
+                                  "color: #ffffff");
+
+
 }
 
 void MainWindow::setTabIcon(){
@@ -116,7 +142,7 @@ void MainWindow::ShowBurgerInfoDetails(QString name){
     DetailWindow *dw = new DetailWindow(nullptr, name, items);
 
     // connection =======================================================================================
-    QObject::connect(dw, SIGNAL(Trigger(const Item &arg)),this, SLOT(UpdateBasket(const Item &arg)));
+    QObject::connect(dw, SIGNAL(SignalToMainClass(QString)),this, SLOT(UpdateBasket(QString)));
 
     /*
      QObject::connect(&sender, SIGNAL(foo(QString)), &receiver, SLOT(bar(QString)));
@@ -132,8 +158,7 @@ void MainWindow::ShowBurgerInfoDetails(QString name){
 
 
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
 
     delete ui;
 }

@@ -29,7 +29,8 @@ SOURCES += \
     item.cpp \
     databasehandler.cpp \
     detailwindow.cpp \
-    globalhelper.cpp
+    globalhelper.cpp \
+    backetlistitem.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,12 +39,14 @@ HEADERS += \
     item.h \
     databasehandler.h \
     detailwindow.h \
-    globalhelper.h
+    globalhelper.h \
+    backetlistitem.h
 
 FORMS += \
         mainwindow.ui \
     detailwindow.ui \
-    detailwindow.ui
+    detailwindow.ui \
+    backetlistitem.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
