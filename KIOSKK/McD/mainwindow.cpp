@@ -7,7 +7,7 @@
 #include<QQmlContext>
 #include "mydatabase.h"
 #include"detailwindow.h"
-
+#include <QtCore/QCoreApplication>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setStyleSheet("background-color:white;");
 
 
-   // Setting Images & Size & QuickWidget=========================================================
+   // Setting Images & Size & QuickWidget===========================================
     ui->setupUi(this);
 
     setSwipeView();
@@ -39,6 +39,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+void MainWindow::UpdateBasket(const Item &arg){
+    QString str =arg.getName();
+    ui->label->setText("awefawef");
+    qDebug("HEllo>");
+    qDebug()<<str;
+}
 
 void MainWindow::setSwipeView(){
     ui->quickWidget_2->rootContext()->setContextProperty("MainWindow", this);
@@ -108,6 +114,17 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
 
 void MainWindow::ShowBurgerInfoDetails(QString name){
     DetailWindow *dw = new DetailWindow(nullptr, name, items);
+
+    // connection =======================================================================================
+    QObject::connect(dw, SIGNAL(Trigger(const Item &arg)),this, SLOT(UpdateBasket(const Item &arg)));
+
+    /*
+     QObject::connect(&sender, SIGNAL(foo(QString)), &receiver, SLOT(bar(QString)));
+     sender.fireSignal();
+     */
+
+    // connection =======================================================================================
+
     dw->show();
 
 }
@@ -123,13 +140,3 @@ MainWindow::~MainWindow()
 
 
 
-void MainWindow::on_pushButton_clicked(){
-
-
-}
-
-
-
-void MainWindow::on_Item_bg1_btn_clicked(){
-
-}

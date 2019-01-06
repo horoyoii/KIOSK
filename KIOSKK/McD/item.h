@@ -6,11 +6,14 @@
 class Item
 {
 private:
+    QString kind;
     QString name;
+    QString option;
     int price;
 public:
     Item(QString name, int price);
-    QString getName();
+    Item(QString kind, QString name, QString option, int price);
+    QString getName() const;
     int getPrice() const;
 };
 

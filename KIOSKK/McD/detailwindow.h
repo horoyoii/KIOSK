@@ -5,6 +5,7 @@
 #include"mydatabase.h"
 #include"globalhelper.h"
 #include<QString>
+#include"item.h"
 namespace Ui {
 class DetailWindow;
 }
@@ -18,7 +19,14 @@ public:
     ~DetailWindow();
 
 private slots:
-    void on_Cancel_clicked();
+    void on_Cancel_clicked(void);
+
+    void on_btn_larger_clicked();
+
+    void on_btn_normal_clicked();
+
+    void on_btn_single_clicked();
+
 
 private:
     Ui::DetailWindow *ui;
@@ -27,6 +35,9 @@ private:
     void SetBurgerName(QString name);
     void SetBurgerPrice(QString name, MyDatabase *items);
     void SetMainImage(QString name);
+
+signals:
+    void SignalToMainClass(const Item &arg);
 };
 
 #endif // DETAILWINDOW_H

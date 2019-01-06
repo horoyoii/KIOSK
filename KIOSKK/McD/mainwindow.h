@@ -5,6 +5,8 @@
 #include <QMouseEvent>
 #include <basket.h>
 #include <mydatabase.h>
+#include<QObject>
+#include"item.h"
 
 namespace Ui {
 class MainWindow;
@@ -31,12 +33,7 @@ public:
 
 
 private slots:
-
-
-
-
-    void on_pushButton_clicked();
-    void on_Item_bg1_btn_clicked();
+    void UpdateBasket(const Item &arg);
 };
 
 #endif // MAINWINDOW_H

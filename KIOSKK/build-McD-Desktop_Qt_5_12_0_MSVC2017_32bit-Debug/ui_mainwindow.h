@@ -46,6 +46,7 @@ public:
     QPushButton *btn_order;
     QLabel *basketLabel;
     QLabel *banner;
+    QLabel *label;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -130,6 +131,9 @@ public:
         banner->setSizePolicy(sizePolicy);
         banner->setScaledContents(true);
         banner->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(40, 810, 211, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -161,6 +165,7 @@ public:
         btn_order->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\355\225\230\352\270\260", nullptr));
         basketLabel->setText(QApplication::translate("MainWindow", "\354\236\245\353\260\224\352\265\254\353\213\210", nullptr));
         banner->setText(QString());
+        label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

@@ -90,16 +90,23 @@ void DetailWindow::on_Cancel_clicked(){
     this->close();
 }
 
-void DetailWindow::on_btn_larger_clicked(){
 
+void DetailWindow::on_btn_larger_clicked(){
+    const Item item("abae", 120);
+    emit SignalToMainClass(item);
+    this->close();
 }
 
 void DetailWindow::on_btn_normal_clicked(){
 
+    //emit SignalToMainClass();
+    this->close();
 }
 
 void DetailWindow::on_btn_single_clicked(){
 
+    //emit SignalToMainClass();
+    this->close();
 }
 
 
