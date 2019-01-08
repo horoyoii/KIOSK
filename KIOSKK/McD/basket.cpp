@@ -5,8 +5,9 @@ Basket::Basket()
 
 }
 
-void Basket::AddItem(QString kind, QString name, QString option, int price){
-    List.push_back(Item(kind, name, option, price));
+void Basket::AddItem(Item item){
+    List.push_back(item);
+    totalSum+=item.getPrice();
 }
 
 int Basket::getTotalSum() const {

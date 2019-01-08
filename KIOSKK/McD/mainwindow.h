@@ -7,7 +7,9 @@
 #include <mydatabase.h>
 #include<QObject>
 #include"item.h"
-
+#include<globalhelper.h>
+#include"payment.h"
+#include"standbypage.h"
 namespace Ui {
 class MainWindow;
 }
@@ -17,10 +19,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
+    bool InitFlag;
     Ui::MainWindow *ui;
     Basket *basket;
     MyDatabase *items;
-
+    StandByPage* stp;
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *ev);
@@ -31,9 +34,13 @@ public:
     ~MainWindow();
     Q_INVOKABLE void ShowBurgerInfoDetails(QString name);
 
+signals:
+    void signal_UpdateTotalCost(void);
 
 private slots:
     void UpdateBasket(QString arg);
+    void UpdateTotalCost(void);
+    void on_btn_order_clicked();
 };
 
 #endif // MAINWINDOW_H

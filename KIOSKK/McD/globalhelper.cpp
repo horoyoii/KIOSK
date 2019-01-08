@@ -1,5 +1,7 @@
 #include "globalhelper.h"
 
+
+
 map<QString, QString> GlobalHelper::FullNameInfo;
 void GlobalHelper::Init(){
 
@@ -20,6 +22,19 @@ GlobalHelper::GlobalHelper(){
 }
 
 
-QString GlobalHelper::GetFullName(QString tocken){
-    return FullNameInfo[tocken];
+QString GlobalHelper::GetFullName(QString tocken, QString option){
+    if(option == nullptr)
+        return FullNameInfo[tocken];
+    else{
+        QString rtn = FullNameInfo[tocken];
+        if(!option.compare("S"))
+            rtn+=" Single";
+        else if(!option.compare("N"))
+            rtn+=" Set";
+        else if(!option.compare("L"))
+            rtn+=" Large Set";
+
+        return rtn;
+    }
 }
+

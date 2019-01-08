@@ -8,7 +8,10 @@ Item::Item(QString kind, QString name, QString option, int price)
     :kind(kind), name(name), option(option), price(price){
 
 }
+Item::Item(QString name, QString option, int price)
+    :name(name), option(option), price(price){
 
+}
 QString Item::getName() const{
     return name;
 }

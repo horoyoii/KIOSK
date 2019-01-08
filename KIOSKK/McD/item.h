@@ -12,6 +12,7 @@ private:
     int price;
 public:
     Item(QString name, int price);
+    Item(QString name, QString option, int price);
     Item(QString kind, QString name, QString option, int price);
     QString getName() const;
     int getPrice() const;

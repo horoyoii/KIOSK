@@ -41,7 +41,10 @@ public:
     QLabel *banner;
     QPushButton *btn_cancel;
     QPushButton *btn_order;
-    QListWidget *basketList;
+    QListWidget *basketList_name;
+    QLabel *TotalCost;
+    QListWidget *basketList_cacel;
+    QListWidget *basketList_price;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
 
@@ -91,7 +94,11 @@ public:
         tabWidget->addTab(tab_4, QString());
         basketLabel = new QLabel(centralWidget);
         basketLabel->setObjectName(QString::fromUtf8("basketLabel"));
-        basketLabel->setGeometry(QRect(0, 740, 1061, 16));
+        basketLabel->setGeometry(QRect(0, 730, 1051, 31));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Agency FB"));
+        font.setPointSize(12);
+        basketLabel->setFont(font);
         basketLabel->setScaledContents(false);
         banner = new QLabel(centralWidget);
         banner->setObjectName(QString::fromUtf8("banner"));
@@ -106,19 +113,32 @@ public:
         btn_cancel = new QPushButton(centralWidget);
         btn_cancel->setObjectName(QString::fromUtf8("btn_cancel"));
         btn_cancel->setGeometry(QRect(40, 950, 361, 28));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Century Gothic"));
-        font.setPointSize(16);
-        font.setBold(true);
-        font.setWeight(75);
-        btn_cancel->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("Century Gothic"));
+        font1.setPointSize(16);
+        font1.setBold(true);
+        font1.setWeight(75);
+        btn_cancel->setFont(font1);
         btn_order = new QPushButton(centralWidget);
         btn_order->setObjectName(QString::fromUtf8("btn_order"));
         btn_order->setGeometry(QRect(650, 950, 331, 28));
-        btn_order->setFont(font);
-        basketList = new QListWidget(centralWidget);
-        basketList->setObjectName(QString::fromUtf8("basketList"));
-        basketList->setGeometry(QRect(40, 770, 921, 151));
+        btn_order->setFont(font1);
+        basketList_name = new QListWidget(centralWidget);
+        basketList_name->setObjectName(QString::fromUtf8("basketList_name"));
+        basketList_name->setGeometry(QRect(40, 770, 591, 151));
+        TotalCost = new QLabel(centralWidget);
+        TotalCost->setObjectName(QString::fromUtf8("TotalCost"));
+        TotalCost->setGeometry(QRect(890, 730, 161, 21));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Arial"));
+        font2.setPointSize(12);
+        TotalCost->setFont(font2);
+        basketList_cacel = new QListWidget(centralWidget);
+        basketList_cacel->setObjectName(QString::fromUtf8("basketList_cacel"));
+        basketList_cacel->setGeometry(QRect(860, 760, 151, 192));
+        basketList_price = new QListWidget(centralWidget);
+        basketList_price->setObjectName(QString::fromUtf8("basketList_price"));
+        basketList_price->setGeometry(QRect(670, 760, 161, 192));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -147,6 +167,7 @@ public:
         banner->setText(QString());
         btn_cancel->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\354\267\250\354\206\214", nullptr));
         btn_order->setText(QApplication::translate("MainWindow", "\354\243\274\353\254\270\355\225\230\352\270\260", nullptr));
+        TotalCost->setText(QString());
     } // retranslateUi
 
 };

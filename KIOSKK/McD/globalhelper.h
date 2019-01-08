@@ -3,7 +3,12 @@
 #include<map>
 #include<QString>
 
+// to convert symbolized tokens to its mapping fullname
+
 using namespace std;
+
+
+
 class GlobalHelper
 {
 private:
@@ -11,8 +16,7 @@ private:
 public:
     GlobalHelper();
     static void Init();
-    static QString GetFullName(QString tocken);
+    static QString GetFullName(QString tocken, QString option = nullptr);
 };
-
 
 #endif // GLOBALHELPER_H

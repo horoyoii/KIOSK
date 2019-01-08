@@ -15,7 +15,7 @@ public:
     explicit Basket();
     int getTotalSum() const;
     vector<Item> getList() const;
-    void AddItem(QString kind, QString name, QString option, int price);
+    void AddItem(Item item);
 
 };
 
