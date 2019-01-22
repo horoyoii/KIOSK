@@ -67,6 +67,7 @@ public class OTPActivity extends AppCompatActivity {
                     while (true) {
 
                         data = in.readLine(); // 서버 측에서 마지막에 \n을 넣어 보내야 제대로 받는다.
+                        Log.d("TTS", data);
                         final int OTP=Integer.parseInt(data);
                         output.post(new Runnable() {
                             public void run() {
