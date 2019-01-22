@@ -15,10 +15,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 #include "QtQuickWidgets/QQuickWidget"
 
@@ -45,8 +43,6 @@ public:
     QLabel *TotalCost;
     QListWidget *basketList_cacel;
     QListWidget *basketList_price;
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -140,13 +136,6 @@ public:
         basketList_price->setObjectName(QString::fromUtf8("basketList_price"));
         basketList_price->setGeometry(QRect(670, 760, 161, 192));
         MainWindow->setCentralWidget(centralWidget);
-        menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1058, 26));
-        MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
 
         retranslateUi(MainWindow);
 

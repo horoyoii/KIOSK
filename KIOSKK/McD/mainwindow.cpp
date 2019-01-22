@@ -75,7 +75,6 @@ void MainWindow::setLayoutSize(){
     ui->banner->setFixedSize(760, 170);
 
     ui->tabWidget->setGeometry(0, 170, 760, 590);
-
     ui->basketLabel->setGeometry(0, 735, 760, 25);
     ui->basketLabel->setStyleSheet("QLabel { background-color : red; color : white}");
     ui->TotalCost->setGeometry(520, 735, 120, 25);

@@ -41,6 +41,7 @@ private slots:
     void UpdateBasket(QString arg);
     void UpdateTotalCost(void);
     void on_btn_order_clicked();
+    void on_btn_cancel_clicked();
 };
 
 #endif // MAINWINDOW_H
