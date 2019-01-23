@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MyThread_t {
-    QByteArrayData data[8];
-    char stringdata0[80];
+    QByteArrayData data[9];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,12 +38,13 @@ QT_MOC_LITERAL(3, 16, 23), // "QTcpSocket::SocketError"
 QT_MOC_LITERAL(4, 40, 11), // "socketerror"
 QT_MOC_LITERAL(5, 52, 9), // "readyRead"
 QT_MOC_LITERAL(6, 62, 12), // "disconnected"
-QT_MOC_LITERAL(7, 75, 4) // "send"
+QT_MOC_LITERAL(7, 75, 4), // "send"
+QT_MOC_LITERAL(8, 80, 3) // "OTP"
 
     },
     "MyThread\0error\0\0QTcpSocket::SocketError\0"
     "socketerror\0readyRead\0disconnected\0"
-    "send"
+    "send\0OTP"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +67,7 @@ static const uint qt_meta_data_MyThread[] = {
  // slots: name, argc, parameters, tag, flags
        5,    0,   37,    2, 0x0a /* Public */,
        6,    0,   38,    2, 0x0a /* Public */,
-       7,    0,   39,    2, 0x0a /* Public */,
+       7,    1,   39,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -74,7 +75,7 @@ static const uint qt_meta_data_MyThread[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    8,
 
        0        // eod
 };
@@ -88,7 +89,7 @@ void MyThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 0: _t->error((*reinterpret_cast< QTcpSocket::SocketError(*)>(_a[1]))); break;
         case 1: _t->readyRead(); break;
         case 2: _t->disconnected(); break;
-        case 3: _t->send(); break;
+        case 3: _t->send((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

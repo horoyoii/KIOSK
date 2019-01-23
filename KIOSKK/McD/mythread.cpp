@@ -28,7 +28,7 @@ void MyThread::run()
 
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()), Qt::DirectConnection);
     connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
-    connect(py, SIGNAL(SignalSendingOTP()), this, SLOT(send()));
+    connect(py, SIGNAL(SignalSendingOTP(QString)), this, SLOT(send(QString)));
     // We'll have multiple clients, we want to know which is which
     qDebug() << socketDescriptor << " Client connected";
 
@@ -50,9 +50,9 @@ void MyThread::readyRead(){
     socket->write(Data);
 }
 
-void MyThread::send(){
-    QString qstrTest = "8924\n";
-    QByteArray data = qstrTest.toLocal8Bit();
+void MyThread::send(QString OTP){
+    //QString qstrTest = "8924\n";
+    QByteArray data = OTP.toLocal8Bit();
     qDebug("Send Called "+data);
     socket->write(data);
 }

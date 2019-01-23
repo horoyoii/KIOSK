@@ -20,7 +20,7 @@ signals:
 public slots:
     void readyRead();
     void disconnected();
-    void send();
+    void send(QString OTP);
 
 private:
     QTcpSocket *socket;
