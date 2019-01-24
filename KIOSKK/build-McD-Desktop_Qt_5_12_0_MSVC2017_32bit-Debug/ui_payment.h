@@ -41,6 +41,8 @@ public:
     QLabel *pass_2;
     QLabel *pass_3;
     QLabel *pass_4;
+    QLabel *Time;
+    QLabel *label_en;
 
     void setupUi(QWidget *Payment)
     {
@@ -154,6 +156,12 @@ public:
         pass_4 = new QLabel(Payment);
         pass_4->setObjectName(QString::fromUtf8("pass_4"));
         pass_4->setGeometry(QRect(390, 120, 41, 31));
+        Time = new QLabel(Payment);
+        Time->setObjectName(QString::fromUtf8("Time"));
+        Time->setGeometry(QRect(200, 180, 231, 21));
+        label_en = new QLabel(Payment);
+        label_en->setObjectName(QString::fromUtf8("label_en"));
+        label_en->setGeometry(QRect(90, 30, 401, 41));
         Background_label->raise();
         push_send_otp->raise();
         push_fin->raise();
@@ -162,6 +170,8 @@ public:
         pass_2->raise();
         pass_3->raise();
         pass_4->raise();
+        Time->raise();
+        label_en->raise();
 
         retranslateUi(Payment);
 
@@ -189,6 +199,8 @@ public:
         pass_2->setText(QString());
         pass_3->setText(QString());
         pass_4->setText(QString());
+        Time->setText(QString());
+        label_en->setText(QApplication::translate("Payment", "Enter new validation code on your app", nullptr));
     } // retranslateUi
 
 };

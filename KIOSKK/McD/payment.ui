@@ -259,6 +259,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="Time">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>180</y>
+     <width>231</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_en">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>30</y>
+     <width>401</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enter new validation code on your app</string>
+   </property>
+  </widget>
   <zorder>Background_label</zorder>
   <zorder>push_send_otp</zorder>
   <zorder>push_fin</zorder>
@@ -267,6 +293,8 @@
   <zorder>pass_2</zorder>
   <zorder>pass_3</zorder>
   <zorder>pass_4</zorder>
+  <zorder>Time</zorder>
+  <zorder>label_en</zorder>
  </widget>
  <resources/>
  <connections/>

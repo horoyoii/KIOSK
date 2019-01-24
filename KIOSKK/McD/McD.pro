@@ -34,7 +34,8 @@ SOURCES += \
     payment.cpp \
     standbypage.cpp \
     mythread.cpp \
-    myserver.cpp
+    myserver.cpp \
+    mytimer.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     payment.h \
     standbypage.h \
     mythread.h \
-    myserver.h
+    myserver.h \
+    mytimer.h
 
 FORMS += \
         mainwindow.ui \

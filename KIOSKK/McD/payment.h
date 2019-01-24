@@ -2,7 +2,7 @@
 #define PAYMENT_H
 
 #include <QWidget>
-
+#include"mytimer.h"
 namespace Ui {
 class Payment;
 }
@@ -40,6 +40,7 @@ private slots:
     void UpdatePassUI();
 
     void on_push_fin_clicked();
+    void UpdateTimerUI(int TIME);
 
 private:
     Ui::Payment *ui;

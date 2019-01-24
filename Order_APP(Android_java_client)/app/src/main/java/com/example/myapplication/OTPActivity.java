@@ -14,7 +14,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 
 public class OTPActivity extends AppCompatActivity {
     Address address;
@@ -27,21 +29,23 @@ public class OTPActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        socket = null;
         setContentView(R.layout.activity_otp);
+        /*
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
+        */
         Intent intent = getIntent();
         address = (Address)intent.getSerializableExtra("Address");
-        // 115.145.241.19
 
         output = findViewById(R.id.textView);
         Button button = findViewById(R.id.button_order);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Log.d("TTS", "Button Clicked");
                 ClientThread.start();  //onResume()에서 실행.
 
             }
@@ -52,9 +56,24 @@ public class OTPActivity extends AppCompatActivity {
          ClientThread= new Thread() {
             public void run() {
                 try {
+                    Log.d("TTS", "Run Called");
                     String host = address.getIPAddress();
                     int port = Integer.parseInt(address.getPortNum());
-                    socket = new Socket(host, port);
+                    Log.d("TTS", host);
+                    Log.d("TTS", address.getPortNum());
+                    //socket = new Socket(host, port);
+                    try {
+                        socket = new Socket();
+                        SocketAddress Address = new InetSocketAddress(host, port);
+                        socket.connect(Address);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                    if(socket != null){
+                        Log.d("TTS", "made");
+                    }
+
                     out = new PrintWriter(socket.getOutputStream(), true); //데이터를 전송시 stream 형태로 변환하여                                                                                                                       //전송한다.
                     in = new BufferedReader(new InputStreamReader(
                             socket.getInputStream())); //데이터 수신시 stream을 받아들인다.
