@@ -14,6 +14,7 @@ public:
     explicit MyServer(QObject *parent = 0);
     void startServer(Payment *py);
 signals:
+    void newConnectionIsComming();
 
 public slots:
 

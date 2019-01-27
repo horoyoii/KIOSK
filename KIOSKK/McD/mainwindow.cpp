@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setFixedSize(760, 1040);
     this->setStyleSheet("background-color:white;");
     py = new Payment;
-
+    py->hide();
    // Setting Images & Size & QuickWidget===========================================
     ui->setupUi(this);
 
@@ -32,17 +32,17 @@ MainWindow::MainWindow(QWidget *parent) :
     // Create a Basket & Get Itmems from DB ========================================
     basket = new Basket();
     items = new MyDatabase();
-    stp = new StandByPage;
 
     //=============================================================================
     // Update Item List
     UpdateItemListIntoWidget();
 
+    // Connect ====================================================================
+    QObject::connect(py, SIGNAL(SignalFinTheTaskSucessfully(bool)), this, SLOT(FinTheTotalTask(bool)));
 }
+
 // Slots ========================================================================
 void MainWindow::UpdateBasket(QString arg){
-
-
     // update basket instance
     QStringList list;
     list = arg.split(QRegExp("\\W+"));
@@ -61,6 +61,20 @@ void MainWindow::UpdateTotalCost(void){
     ui->TotalCost->setText(QString::number(this->basket->getTotalSum()));
 }
 
+void MainWindow::FinTheTotalTask(bool opt){
+    if(opt){ // 결제 성공 시
+        MyDebug::Log("결제성공");
+        InitAllState();
+        stp->show(); // 화면 덮개
+    }else{ // 결제 실패 시
+
+    }
+
+}
+
+void MainWindow::openTheMainPage(){
+    stp->close();
+}
 //===============================================================================
 
 
@@ -156,12 +170,12 @@ Payment* MainWindow::getPaymentInstance() const{
 
 //프로그램을 원하는 위치까지 이동시킨 다음 타이틀바를 제거하기 위하여
 // (원하는 위치까지 이동 후) 마우스를 클릭하게 되면 타이틀바가 사라지게 된다.
+
 void MainWindow::mousePressEvent(QMouseEvent *event){
     if(InitFlag == false){
         if(event->button() & Qt::LeftButton){
             this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint); // hide the title bar
             this->show();
-            stp->show();
             InitFlag = true;
         }
     }
@@ -175,16 +189,10 @@ void MainWindow::ShowBurgerInfoDetails(QString name){
     // connection =======================================================================================
     QObject::connect(dw, SIGNAL(SignalToMainClass(QString)),this, SLOT(UpdateBasket(QString)));
     QObject::connect(this, SIGNAL(signal_UpdateTotalCost(void)), this, SLOT(UpdateTotalCost(void)));
-    //QObject::connect()
-    /*
-     QObject::connect(&sender, SIGNAL(foo(QString)), &receiver, SLOT(bar(QString)));
-     sender.fireSignal();
-     */
 
-    // =================================================================================================
+    //=================================================================================================
 
     dw->show();
-
 }
 
 
@@ -199,15 +207,48 @@ MainWindow::~MainWindow(){
 
 
 void MainWindow::on_btn_order_clicked(){
-    py->show();
+    qDebug()<<"Clicked";
+
 }
 
 void MainWindow::on_btn_cancel_clicked(){
+    StandByPage *stp = new StandByPage;
+    this->stp = stp;
     stp->show();
 
     // Init all state =========================
-
+    InitAllState();
 
         // Init all state =========================
 
+}
+
+void MainWindow::InitAllState(){
+    delete basket;
+    basket = new Basket();
+    ui->basketList_name->clear();
+    ui->basketList_price->clear();
+    ui->basketList_cacel->clear();
+    ui->TotalCost->clear();
+    py->InitAllStarte();
+
+    StandByPage *stp = new StandByPage;
+    if(this->stp != nullptr)
+        this->stp->close();
+    this->stp = stp;
+    stp->show();
+}
+
+void MainWindow::on_btn_order_pressed(){
+    qDebug()<<"Pressed";
+
+
+}
+
+void MainWindow::on_btn_order_released(){
+    qDebug()<<"Released";
+    py->getBasketInfo(*basket);
+    py->setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    py->activateWindow();
+    py->show();
 }

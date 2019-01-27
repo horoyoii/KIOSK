@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include"mytimer.h"
+#include"basket.h"
+#include<QJsonObject>
+
 namespace Ui {
 class Payment;
 }
@@ -14,15 +17,20 @@ private:
     // 두 값을 비교하여 확인한다.
     QString InputValue; // 입력받는 값
     QString OTP; // 앱으로 보내는 값
+    Basket basket;
+    myTimer *timer;
 public:
     explicit Payment(QWidget *parent = nullptr);
     ~Payment();
-
+    void getBasketInfo(Basket bas);
     QString GenerateOTP();
-
+    void InitAllStarte();
 signals:
     void SignalSendingOTP(QString OTP);
+    void SignalSendingResult(Basket basket);
     void SignalUpdatePassUI(void);
+    void SignalFinTheTaskSucessfully(bool opt);
+
 private slots:
     void on_push_send_otp_clicked();
     void on_psh_num_1_clicked();
@@ -38,7 +46,6 @@ private slots:
     void on_psh_num_del_clicked();
 
     void UpdatePassUI();
-
     void on_push_fin_clicked();
     void UpdateTimerUI(int TIME);
 

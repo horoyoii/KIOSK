@@ -7,7 +7,8 @@ StandByPage::StandByPage(QWidget *parent) :
     ui(new Ui::StandByPage)
 {
     ui->setupUi(this);
-    this->setFixedSize(760, 1040);
+    //this->setFixedSize(760, 1040);
+    this->setFixedSize(400, 400);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
@@ -17,7 +18,5 @@ StandByPage::~StandByPage()
 }
 
 void StandByPage::mousePressEvent(QMouseEvent *event){
-    if(event->button() & Qt::LeftButton){
-        this->hide();
-    }
+
 }

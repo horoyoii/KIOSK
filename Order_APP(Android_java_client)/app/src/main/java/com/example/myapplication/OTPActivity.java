@@ -1,14 +1,15 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.os.StrictMode;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,13 +25,15 @@ public class OTPActivity extends AppCompatActivity {
     PrintWriter out; // 데이터 전송
     BufferedReader in; // 데이터 수신
     TextView output;
-    String data;
+    String responses;
     Thread ClientThread;
+    boolean flag;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         socket = null;
         setContentView(R.layout.activity_otp);
+        flag = true;
         /*
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -42,7 +45,9 @@ public class OTPActivity extends AppCompatActivity {
 
         output = findViewById(R.id.textView);
         Button button = findViewById(R.id.button_order);
-
+        output.setTextColor(Color.parseColor("#f29886"));
+        output.setTextSize(17);
+        output.setText("you will get OTP\n from here...");
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d("TTS", "Button Clicked");
@@ -59,19 +64,12 @@ public class OTPActivity extends AppCompatActivity {
                     Log.d("TTS", "Run Called");
                     String host = address.getIPAddress();
                     int port = Integer.parseInt(address.getPortNum());
-                    Log.d("TTS", host);
-                    Log.d("TTS", address.getPortNum());
-                    //socket = new Socket(host, port);
                     try {
                         socket = new Socket();
                         SocketAddress Address = new InetSocketAddress(host, port);
                         socket.connect(Address);
                     }catch(Exception e){
                         e.printStackTrace();
-                    }
-
-                    if(socket != null){
-                        Log.d("TTS", "made");
                     }
 
                     out = new PrintWriter(socket.getOutputStream(), true); //데이터를 전송시 stream 형태로 변환하여                                                                                                                       //전송한다.
@@ -83,24 +81,47 @@ public class OTPActivity extends AppCompatActivity {
                 }
 
                 try {
-                    while (true) {
+                    while (socket.isConnected()) {
+                        if(flag) {
+                            flag = false;
+                            responses = in.readLine();
+                            final int OTP = Integer.parseInt(responses);
+                            output.post(new Runnable() {
+                                public void run() {
+                                    output.setTextSize(40);
+                                    output.setText(String.valueOf(OTP));
+                                }
+                            });
+                        }else{
+                            Log.d("TTS", "Phase 2");
+                            StringBuilder sb = new StringBuilder();
+                            String line;
 
-                        data = in.readLine(); // 서버 측에서 마지막에 \n을 넣어 보내야 제대로 받는다.
-                        Log.d("TTS", data);
-                        final int OTP=Integer.parseInt(data);
-                        output.post(new Runnable() {
-                            public void run() {
-                                output.setText(String.valueOf(OTP));
+                            while(!((line = in.readLine()).equals("}$"))){
+                                sb.append(line+"\n");
                             }
-                        });
+
+                            responses = sb.toString();
+
+                            Log.d("TTS - getFromWin", sb.toString());
+                            Gson gson = new Gson();
+                            OrderList orderList = gson.fromJson(responses, OrderList.class);
+                            // json의 key 값은 자바 객체의 변수명이 된다.
+                            orderList.ShowInfo();
+                            socket.close();
+                            Log.d("TTS - END", "socket disconnect");
+
+                            Intent intent = new Intent(getApplicationContext(), SuccessActivity.class);
+                            //OrderList orl = new OrderList(orderList.getList(), orderList.getTotalSum());
+                            intent.putExtra("List", orderList);
+                            startActivity(intent);
+                            Log.d("TTS", "Show new ");
+                        }
                     }
                 } catch (Exception e) {
                 }
             }
         };
-
-        //        ClientThread.start();  //onResume()에서 실행.
-
     }
 }
 

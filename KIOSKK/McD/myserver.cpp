@@ -23,6 +23,7 @@ void MyServer::startServer(Payment *py)
 // This function is called by QTcpServer when a new connection is available.
 void MyServer::incomingConnection(qintptr socketDescriptor)
 {
+     emit newConnectionIsComming();
     // We have a new connection
     qDebug() << socketDescriptor << " Connecting...";
 

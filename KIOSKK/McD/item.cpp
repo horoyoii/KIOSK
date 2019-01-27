@@ -18,3 +18,11 @@ QString Item::getName() const{
 int Item::getPrice() const{
     return price;
 }
+
+QString Item::getKind() const{
+    return kind;
+}
+
+QString Item::getOption() const{
+    return option;
+}

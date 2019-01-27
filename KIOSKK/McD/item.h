@@ -14,7 +14,9 @@ public:
     Item(QString name, int price);
     Item(QString name, QString option, int price);
     Item(QString kind, QString name, QString option, int price);
+    QString getKind() const;
     QString getName() const;
+    QString getOption() const;
     int getPrice() const;
 };
 

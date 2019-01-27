@@ -98,7 +98,7 @@ void DetailWindow::on_btn_larger_clicked(){
     //Info to pass : name $ option $ price $
     QString arg = BasicName+"$";
     arg+="L$";
-    arg+=QString::number(BasicPrice)+"$";
+    arg+=QString::number(BasicPrice+1800)+"$";
     emit SignalToMainClass(arg);
     this->close();
 }
@@ -107,7 +107,7 @@ void DetailWindow::on_btn_normal_clicked(){
 
     QString arg = BasicName+"$";
     arg+="N$";
-    arg+=QString::number(BasicPrice)+"$";
+    arg+=QString::number(BasicPrice+1200)+"$";
     emit SignalToMainClass(arg);
     this->close();
 }

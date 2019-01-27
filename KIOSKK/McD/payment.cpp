@@ -29,7 +29,7 @@ Payment::Payment(QWidget *parent) :
     ui->pass_4->setScaledContents(true);
 
     ui->label_en->setStyleSheet("QLabel { background-color : blue; color : white; font-weight: bold; font-size : 20dp}");
-    ui->label_en->setGeometry(60, 40, 500, 30);
+    ui->label_en->setGeometry(90, 40, 500, 30);
     ui->label_en->setFont(QFont("Century Gothic",15));
 
     ui->Time->setStyleSheet("QLabel { background-color : blue; color : white; font-weight: bold; font-size : 20dp}");
@@ -116,7 +116,7 @@ void Payment::on_push_send_otp_clicked(){
     emit SignalSendingOTP(OTP+"\n");
     //TODO : 타이머 작동
     //timer->start();
-    myTimer *timer = new myTimer;
+    timer = new myTimer;
     connect(timer, SIGNAL(SiganlUpdateTimerUI(int)), this, SLOT(UpdateTimerUI(int)));
     qDebug("clicked");
 
@@ -228,13 +228,28 @@ void Payment::on_psh_num_del_clicked(){
     emit SignalUpdatePassUI();
 }
 
+void Payment::getBasketInfo(Basket bas){
+    basket = bas;
+}
+
 void Payment::on_push_fin_clicked(){
     if(!OTP.compare(InputValue)){ // 결제 성공 시
-        // TODO : 앱으로 메세지 전송 후 연결 종료
-        // TODO : Timer Thread 종료
+        // DONE : 앱으로 메세지 전송 후 연결 종료
+        emit SignalSendingResult(basket);
+        // DONE : Timer Thread 종료
+        delete timer;
+        // DONE: 네트워크 통신 시그널
+        emit SignalFinTheTaskSucessfully(true);
         this->close();
     }else{
 
     }
 
+}
+
+
+void Payment::InitAllStarte(){
+    InputValue = "";
+    ui->Time->setText("");
+    UpdatePassUI();
 }

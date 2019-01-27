@@ -35,7 +35,8 @@ SOURCES += \
     standbypage.cpp \
     mythread.cpp \
     myserver.cpp \
-    mytimer.cpp
+    mytimer.cpp \
+    mydebug.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS += \
     standbypage.h \
     mythread.h \
     myserver.h \
-    mytimer.h
+    mytimer.h \
+    mydebug.h
 
 FORMS += \
         mainwindow.ui \
