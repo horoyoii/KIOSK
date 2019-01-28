@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[15];
-    char stringdata0[217];
+    QByteArrayData data[16];
+    char stringdata0[224];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,7 +45,8 @@ QT_MOC_LITERAL(10, 131, 15), // "openTheMainPage"
 QT_MOC_LITERAL(11, 147, 20), // "on_btn_order_pressed"
 QT_MOC_LITERAL(12, 168, 21), // "on_btn_order_released"
 QT_MOC_LITERAL(13, 190, 21), // "ShowBurgerInfoDetails"
-QT_MOC_LITERAL(14, 212, 4) // "name"
+QT_MOC_LITERAL(14, 212, 4), // "name"
+QT_MOC_LITERAL(15, 217, 6) // "option"
 
     },
     "MainWindow\0signal_UpdateTotalCost\0\0"
@@ -53,7 +54,7 @@ QT_MOC_LITERAL(14, 212, 4) // "name"
     "on_btn_order_clicked\0on_btn_cancel_clicked\0"
     "FinTheTotalTask\0opt\0openTheMainPage\0"
     "on_btn_order_pressed\0on_btn_order_released\0"
-    "ShowBurgerInfoDetails\0name"
+    "ShowBurgerInfoDetails\0name\0option"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +64,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,20 +72,21 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   65,    2, 0x08 /* Private */,
-       5,    0,   68,    2, 0x08 /* Private */,
-       6,    0,   69,    2, 0x08 /* Private */,
-       7,    0,   70,    2, 0x08 /* Private */,
-       8,    1,   71,    2, 0x08 /* Private */,
-      10,    0,   74,    2, 0x08 /* Private */,
-      11,    0,   75,    2, 0x08 /* Private */,
-      12,    0,   76,    2, 0x08 /* Private */,
+       3,    1,   70,    2, 0x08 /* Private */,
+       5,    0,   73,    2, 0x08 /* Private */,
+       6,    0,   74,    2, 0x08 /* Private */,
+       7,    0,   75,    2, 0x08 /* Private */,
+       8,    1,   76,    2, 0x08 /* Private */,
+      10,    0,   79,    2, 0x08 /* Private */,
+      11,    0,   80,    2, 0x08 /* Private */,
+      12,    0,   81,    2, 0x08 /* Private */,
 
  // methods: name, argc, parameters, tag, flags
-      13,    1,   77,    2, 0x02 /* Public */,
+      13,    2,   82,    2, 0x02 /* Public */,
+      13,    1,   87,    2, 0x22 /* Public | MethodCloned */,
 
  // signals: parameters
     QMetaType::Void,
@@ -100,6 +102,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
 
  // methods: parameters
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   14,   15,
     QMetaType::Void, QMetaType::QString,   14,
 
        0        // eod
@@ -120,7 +123,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->openTheMainPage(); break;
         case 7: _t->on_btn_order_pressed(); break;
         case 8: _t->on_btn_order_released(); break;
-        case 9: _t->ShowBurgerInfoDetails((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->ShowBurgerInfoDetails((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 10: _t->ShowBurgerInfoDetails((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -164,13 +168,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

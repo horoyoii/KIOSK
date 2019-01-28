@@ -5,25 +5,49 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#000000">
+    android:background="#f5f5dc">
+
     <TextView
+        android:layout_width="204dp"
+        android:layout_height="67dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
         android:text="주문완료"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="50dp" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:text="주문번호 : 102"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
 
     <ListView
         android:id="@+id/card_listView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="344dp"
         android:layout_margin="30dp"
         android:cacheColorHint="@android:color/transparent"
         android:divider="@null"
         android:dividerHeight="10dp"
         android:listSelector="@android:color/transparent" />
+
     <TextView
+        android:id="@+id/totalCost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="금액"/>
+        android:layout_gravity="right|end"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="금액"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
 
 
 </LinearLayout>

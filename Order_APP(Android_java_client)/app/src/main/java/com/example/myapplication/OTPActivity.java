@@ -113,6 +113,7 @@ public class OTPActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(getApplicationContext(), SuccessActivity.class);
                             //OrderList orl = new OrderList(orderList.getList(), orderList.getTotalSum());
+                            Log.d("TTSSS", String.valueOf(orderList.getTotalSum()));
                             intent.putExtra("List", orderList);
                             startActivity(intent);
                             Log.d("TTS", "Show new ");

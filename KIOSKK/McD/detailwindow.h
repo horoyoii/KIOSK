@@ -15,7 +15,7 @@ class DetailWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit DetailWindow(QWidget *parent = nullptr, QString name = nullptr, MyDatabase *items = nullptr);
+    explicit DetailWindow(QWidget *parent = nullptr, QString name = nullptr, MyDatabase *items = nullptr, int option = 0);
     ~DetailWindow();
 
 private slots:
@@ -32,9 +32,14 @@ private:
     Ui::DetailWindow *ui;
     void SetWindowSize();
     void SetIconImage();
+
     void SetBurgerName(QString name);
     void SetBurgerPrice(QString name, MyDatabase *items);
     void SetMainImage(QString name);
+
+    void SetDrinkName(QString name);
+    void SetDrinkPrice(QString name, MyDatabase *items);
+    void SetDrinkImage(QString name);
 
     QString BasicName;
     int BasicPrice;

@@ -36,7 +36,7 @@ public:
     void UpdateItemListIntoWidget();
     void InitAllState(); // 한번의 과정 수행 후 키오스크 전체 초기화
     ~MainWindow();
-    Q_INVOKABLE void ShowBurgerInfoDetails(QString name);
+    Q_INVOKABLE void ShowBurgerInfoDetails(QString name, int option = 0);
 
 signals:
     void signal_UpdateTotalCost(void);

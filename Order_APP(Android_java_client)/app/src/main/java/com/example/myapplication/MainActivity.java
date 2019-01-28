@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.myapplication.Util.NameHelper;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        NameHelper.Init();
 
     }
 }

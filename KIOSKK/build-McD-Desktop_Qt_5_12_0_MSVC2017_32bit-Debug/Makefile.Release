@@ -248,9 +248,12 @@ release\qrc_myimage.cpp: ..\McD\myimage.qrc \
 
 release\qrc_res.cpp: ..\McD\res.qrc \
 		C:\Qt\5.12.0\msvc2017\bin\rcc.exe \
+		..\McD\swipe3.qml \
 		..\McD\Page1Form.ui.qml \
 		..\McD\Page2Form.ui.qml \
+		..\McD\Page1Form_3.ui.qml \
 		..\McD\swipe.qml \
+		..\McD\Page2Form_3.ui.qml \
 		..\McD\image\Sanghai.jpg \
 		..\McD\image\bg_double_bul.jpg \
 		..\McD\image\BTD.jpg \
@@ -260,6 +263,14 @@ release\qrc_res.cpp: ..\McD\res.qrc \
 		..\McD\image\Big.jpg \
 		..\McD\image\bg_btd2.jpg \
 		..\McD\image\1955.jpg \
+		..\McD\image\Drink\Coke.jpg \
+		..\McD\image\Drink\Orange.jpg \
+		..\McD\image\Drink\ShSt.jpg \
+		..\McD\image\Drink\Cafe.jpg \
+		..\McD\image\Drink\ShBa.jpg \
+		..\McD\image\Drink\ShCh.jpg \
+		..\McD\image\Drink\Chil.jpg \
+		..\McD\image\Drink\Milk.jpg \
 		..\McD\image\burgerImage\Sanghai.jpg \
 		..\McD\image\burgerImage\BTD.jpg \
 		..\McD\image\burgerImage\Cen.jpg \
@@ -3651,7 +3662,9 @@ release\mythread.obj: ..\McD\mythread.cpp ..\McD\mythread.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsonobject.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsonvalue.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonDocument \
-		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsondocument.h
+		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsondocument.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonArray \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsonarray.h
 
 release\myserver.obj: ..\McD\myserver.cpp ..\McD\myserver.h \
 		..\McD\payment.h \

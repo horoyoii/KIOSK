@@ -13,6 +13,16 @@ void GlobalHelper::Init(){
     FullNameInfo.insert({"GEC", "Golden Egg Cheese"});
     FullNameInfo.insert({"BTD", "Bacon Tomato Delux"});
     FullNameInfo.insert({"SangHai", "SangHai Burger"});
+    FullNameInfo.insert({"Coke", "Coke"});
+    FullNameInfo.insert({"Milk", "Milk"});
+    FullNameInfo.insert({"Orage", "Orange Juice"});
+    FullNameInfo.insert({"ShCh", "Choco Shake"});
+    FullNameInfo.insert({"ShBa", "Banana Shake"});
+    FullNameInfo.insert({"ShSt", "Strawberry Shake"});
+    FullNameInfo.insert({"Cafe", "Cafe Latte"});
+    FullNameInfo.insert({"Chil", "Golden Kiwi CHiller"});
+
+
 
 }
 

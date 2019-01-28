@@ -19,5 +19,16 @@
         <file>image/burgerImage/Lucky.jpg</file>
         <file>image/burgerImage/Sanghai.jpg</file>
         <file>image/burgerImage/SS.jpg</file>
+        <file>swipe3.qml</file>
+        <file>Page1Form_3.ui.qml</file>
+        <file>Page2Form_3.ui.qml</file>
+        <file>image/Drink/Cafe.jpg</file>
+        <file>image/Drink/Chil.jpg</file>
+        <file>image/Drink/Coke.jpg</file>
+        <file>image/Drink/Milk.jpg</file>
+        <file>image/Drink/Orange.jpg</file>
+        <file>image/Drink/ShBa.jpg</file>
+        <file>image/Drink/ShCh.jpg</file>
+        <file>image/Drink/ShSt.jpg</file>
     </qresource>
 </RCC>

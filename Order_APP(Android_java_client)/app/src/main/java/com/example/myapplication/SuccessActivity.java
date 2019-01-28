@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.myapplication.Util.NameHelper;
 
 public class SuccessActivity extends AppCompatActivity {
     OrderList orderList;
@@ -27,11 +30,14 @@ public class SuccessActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         orderList =(OrderList)intent.getSerializableExtra("List");
-
+        Log.d("TSE", String.valueOf(orderList.getTotalSum()));
         for (int i = 0; i < orderList.getList().size(); i++) {
-            Card card = new Card(orderList.getList().get(i).getName(), "\\ " + orderList.getList().get(i).getPrice());
+            Card card = new Card(NameHelper.getFullName(orderList.getList().get(i).getName(), orderList.getList().get(i).getOption()), orderList.getList().get(i).getPrice()+" 원");
             cardArrayAdapter.add(card);
         }
         listView.setAdapter(cardArrayAdapter);
+
+        TextView textView = findViewById(R.id.totalCost);
+        textView.setText(String.valueOf(orderList.getTotalSum()));
     }
 }

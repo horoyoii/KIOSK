@@ -34,6 +34,7 @@ public:
     QGridLayout *gridLayout_2;
     QQuickWidget *quickWidget_2;
     QWidget *tab_3;
+    QQuickWidget *quickWidget_3;
     QWidget *tab_4;
     QLabel *basketLabel;
     QLabel *banner;
@@ -84,6 +85,10 @@ public:
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        quickWidget_3 = new QQuickWidget(tab_3);
+        quickWidget_3->setObjectName(QString::fromUtf8("quickWidget_3"));
+        quickWidget_3->setGeometry(QRect(10, 10, 851, 493));
+        quickWidget_3->setResizeMode(QQuickWidget::SizeRootObjectToView);
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
@@ -139,7 +144,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

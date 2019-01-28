@@ -81,6 +81,9 @@ void MainWindow::openTheMainPage(){
 void MainWindow::setSwipeView(){
     ui->quickWidget_2->rootContext()->setContextProperty("MainWindow", this);
     ui->quickWidget_2->setSource(QUrl(QStringLiteral("qrc:/swipe.qml")));
+
+    ui->quickWidget_3->rootContext()->setContextProperty("MainWindow", this);
+    ui->quickWidget_3->setSource(QUrl(QStringLiteral("qrc:/swipe3.qml")));
 }
 
 void MainWindow::setLayoutSize(){
@@ -183,16 +186,26 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
 
 
 
-void MainWindow::ShowBurgerInfoDetails(QString name){
-    DetailWindow *dw = new DetailWindow(nullptr, name, items);
-
+void MainWindow::ShowBurgerInfoDetails(QString name, int option){
+    DetailWindow *dw = nullptr;
+    switch(option){
+    case 0: //For burger Page
+        dw = new DetailWindow(nullptr, name, items);
+        break;
+    case 1: // For Drink Page
+        dw = new DetailWindow(nullptr,name, items, 1);
+        break;
+    case 2:
+        dw = new DetailWindow(nullptr,name, items, 2);
+        break;
+    }
     // connection =======================================================================================
     QObject::connect(dw, SIGNAL(SignalToMainClass(QString)),this, SLOT(UpdateBasket(QString)));
     QObject::connect(this, SIGNAL(signal_UpdateTotalCost(void)), this, SLOT(UpdateTotalCost(void)));
 
     //=================================================================================================
-
-    dw->show();
+    if(dw != nullptr)
+        dw->show();
 }
 
 

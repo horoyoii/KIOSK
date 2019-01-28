@@ -5,19 +5,29 @@
 #include<QIcon>
 
 
-DetailWindow::DetailWindow(QWidget *parent, QString name, MyDatabase *items) :
+DetailWindow::DetailWindow(QWidget *parent, QString name, MyDatabase *items, int option) :
     QWidget(parent),
     ui(new Ui::DetailWindow)
 {
     ui->setupUi(this);
-
     SetWindowSize();
     SetIconImage();
-    SetBurgerName(name);
-    SetBurgerPrice(name, items);
-    SetMainImage(name);
 
+    switch(option){
+    case 0: // Page For Burger
+        SetBurgerName(name);
+        SetBurgerPrice(name, items);
+        SetMainImage(name);
+        break;
+    case 1:// Page For Drink
+        SetDrinkName(name);
+        SetDrinkPrice(name, items);
+        SetDrinkImage(name);
+        break;
+    case 2:
 
+        break;
+    }
 
 }
 
@@ -77,6 +87,44 @@ void DetailWindow::SetMainImage(QString name){
     ui->image->setPixmap(pix);
     ui->image->setScaledContents(true);
 }
+
+
+void DetailWindow::SetDrinkName(QString name){
+    // Set Burger Name===========================================
+    BasicName = name;
+    QString FullName = GlobalHelper::GetFullName(name);
+    ui->bg_name->setText(FullName);
+    ui->single_text->setText(FullName);
+    ui->large_text->setText(FullName);
+    ui->normal_text->setText(FullName);
+}
+
+void DetailWindow::SetDrinkPrice(QString name, MyDatabase *items){
+    // Set Burger Price===========================================
+    int price =0;
+    for(auto &x : items->getArrayDrink()){
+        if(name == x.getName()){
+            price = x.getPrice();
+            break;
+        }
+    }
+    BasicPrice = price;
+    ui->Single_price->setText(QString::number(price));
+    ui->Normal_price->setText(QString::number(price + 1200));
+    ui->Larger_price->setText(QString::number(price + 1800));
+}
+
+void DetailWindow::SetDrinkImage(QString name){
+    // Set Image=================================================
+    //qDebug()<<name;
+    QString ImageUrl = "C:\\Users\\friend\\GitHub\\KIOSK\\KIOSKK\\McD\\image\\Drink\\"+name+".jpg";
+    QPixmap pix(ImageUrl);
+    ui->image->setPixmap(pix);
+    ui->image->setScaledContents(true);
+}
+
+
+
 
 
 
