@@ -30,6 +30,7 @@ private slots:
 
 private:
     Ui::DetailWindow *ui;
+    int option;
     void SetWindowSize();
     void SetIconImage();
 
@@ -40,6 +41,10 @@ private:
     void SetDrinkName(QString name);
     void SetDrinkPrice(QString name, MyDatabase *items);
     void SetDrinkImage(QString name);
+
+    void SetDesertName(QString name);
+    void SetDesertPrice(QString name, MyDatabase *items);
+    void SetDesertImage(QString name);
 
     QString BasicName;
     int BasicPrice;

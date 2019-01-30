@@ -27,7 +27,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <property name="iconSize">
      <size>
@@ -85,6 +85,19 @@
      <attribute name="title">
       <string/>
      </attribute>
+     <widget class="QQuickWidget" name="quickWidget_des">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>851</width>
+        <height>493</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="basketLabel">
@@ -211,7 +224,7 @@
       <x>860</x>
       <y>760</y>
       <width>151</width>
-      <height>192</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -221,7 +234,7 @@
       <x>670</x>
       <y>760</y>
       <width>161</width>
-      <height>192</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>

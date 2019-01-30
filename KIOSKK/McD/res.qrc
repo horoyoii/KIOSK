@@ -30,5 +30,16 @@
         <file>image/Drink/ShBa.jpg</file>
         <file>image/Drink/ShCh.jpg</file>
         <file>image/Drink/ShSt.jpg</file>
+        <file>swipe_4.qml</file>
+        <file>Page1Form_4.ui.qml</file>
+        <file>swipe5.qml</file>
+        <file>Page1Form_5.ui.qml</file>
+        <file>Page2Form_5.ui.qml</file>
+        <file>image/ord.JPG</file>
+        <file>swipe_des.qml</file>
+        <file>Page1Form_des.ui.qml</file>
+        <file>image/Desert/Ches.jpg</file>
+        <file>image/Desert/Conn.jpg</file>
+        <file>image/Desert/Shan.jpg</file>
     </qresource>
 </RCC>

@@ -23,3 +23,8 @@ void myTimer::mCount(){
         timer->stop();
 
 }
+
+void myTimer::Stop(){
+    timer->stop();
+    delete timer;
+}

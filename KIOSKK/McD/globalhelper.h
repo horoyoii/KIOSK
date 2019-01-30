@@ -16,7 +16,7 @@ private:
 public:
     GlobalHelper();
     static void Init();
-    static QString GetFullName(QString tocken, QString option = nullptr);
+    static QString GetFullName(QString tocken, QString option = nullptr, int kind = 0);
 };
 
 #endif // GLOBALHELPER_H

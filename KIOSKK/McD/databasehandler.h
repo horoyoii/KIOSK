@@ -6,6 +6,7 @@
 #include<QSqlRecord>
 #include<QtSql>
 
+// 사용하지 않음.
 class DatabaseHandler{
 private:
 public:

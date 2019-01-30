@@ -32,12 +32,13 @@ public class SuccessActivity extends AppCompatActivity {
         orderList =(OrderList)intent.getSerializableExtra("List");
         Log.d("TSE", String.valueOf(orderList.getTotalSum()));
         for (int i = 0; i < orderList.getList().size(); i++) {
-            Card card = new Card(NameHelper.getFullName(orderList.getList().get(i).getName(), orderList.getList().get(i).getOption()), orderList.getList().get(i).getPrice()+" 원");
+            Card card = new Card(NameHelper.getFullName(orderList.getList().get(i).getName(), orderList.getList().get(i).getOption(), orderList.getList().get(i).getKind()), orderList.getList().get(i).getPrice()+" 원");
             cardArrayAdapter.add(card);
         }
         listView.setAdapter(cardArrayAdapter);
 
         TextView textView = findViewById(R.id.totalCost);
-        textView.setText(String.valueOf(orderList.getTotalSum()));
+        String str = String.valueOf(orderList.getTotalSum())+" 원";
+        textView.setText(str);
     }
 }

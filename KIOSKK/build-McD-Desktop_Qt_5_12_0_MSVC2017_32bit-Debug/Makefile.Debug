@@ -243,17 +243,25 @@ debug\qrc_myimage.cpp: ..\McD\myimage.qrc \
 		..\McD\image\burgerImage\Big.jpg \
 		..\McD\image\burgerImage\KakaoTalk_20190106_162438649.jpg \
 		..\McD\image\burgerImage\DB.jpg \
+		..\McD\image\stb.JPG \
 		..\McD\image\banner.jpg
 	C:\Qt\5.12.0\msvc2017\bin\rcc.exe -name myimage ..\McD\myimage.qrc -o debug\qrc_myimage.cpp
 
 debug\qrc_res.cpp: ..\McD\res.qrc \
 		C:\Qt\5.12.0\msvc2017\bin\rcc.exe \
 		..\McD\swipe3.qml \
+		..\McD\swipe_des.qml \
 		..\McD\Page1Form.ui.qml \
 		..\McD\Page2Form.ui.qml \
+		..\McD\Page1Form_5.ui.qml \
 		..\McD\Page1Form_3.ui.qml \
+		..\McD\Page1Form_4.ui.qml \
 		..\McD\swipe.qml \
+		..\McD\Page1Form_des.ui.qml \
+		..\McD\swipe5.qml \
+		..\McD\Page2Form_5.ui.qml \
 		..\McD\Page2Form_3.ui.qml \
+		..\McD\swipe_4.qml \
 		..\McD\image\Sanghai.jpg \
 		..\McD\image\bg_double_bul.jpg \
 		..\McD\image\BTD.jpg \
@@ -263,6 +271,10 @@ debug\qrc_res.cpp: ..\McD\res.qrc \
 		..\McD\image\Big.jpg \
 		..\McD\image\bg_btd2.jpg \
 		..\McD\image\1955.jpg \
+		..\McD\image\ord.JPG \
+		..\McD\image\Desert\Conn.jpg \
+		..\McD\image\Desert\Ches.jpg \
+		..\McD\image\Desert\Shan.jpg \
 		..\McD\image\Drink\Coke.jpg \
 		..\McD\image\Drink\Orange.jpg \
 		..\McD\image\Drink\ShSt.jpg \
@@ -566,6 +578,7 @@ debug\moc_mainwindow.cpp: C:\Qt\5.12.0\msvc2017\include\QtWidgets\QMainWindow \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonObject \
 		..\McD\standbypage.h \
 		..\McD\mydebug.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QDateTime \
 		..\McD\mainwindow.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.12.0\msvc2017\bin\moc.exe
@@ -837,6 +850,7 @@ debug\moc_detailwindow.cpp: C:\Qt\5.12.0\msvc2017\include\QtWidgets\QWidget \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqlresult.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qtsqlversion.h \
+		..\McD\basket.h \
 		..\McD\globalhelper.h \
 		..\McD\detailwindow.h \
 		debug\moc_predefs.h \
@@ -1428,6 +1442,13 @@ debug\moc_myserver.cpp: ..\McD\payment.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qtnetwork-config.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qabstractsocket.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qhostaddress.h \
+		..\McD\mythread.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QThread \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\qthread.h \
+		C:\Qt\5.12.0\msvc2017\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonDocument \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\qjsondocument.h \
 		..\McD\myserver.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.12.0\msvc2017\bin\moc.exe
@@ -1812,6 +1833,7 @@ debug\main.obj: ..\McD\main.cpp ..\McD\mainwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonObject \
 		..\McD\standbypage.h \
 		..\McD\mydebug.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QDateTime \
 		C:\Qt\5.12.0\msvc2017\include\QtWidgets\QApplication \
 		C:\Qt\5.12.0\msvc2017\include\QtWidgets\qapplication.h \
 		C:\Qt\5.12.0\msvc2017\include\QtWidgets\qdesktopwidget.h \
@@ -1827,6 +1849,11 @@ debug\main.obj: ..\McD\main.cpp ..\McD\mainwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qtnetwork-config.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qabstractsocket.h \
 		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qhostaddress.h \
+		..\McD\mythread.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QThread \
+		C:\Qt\5.12.0\msvc2017\include\QtNetwork\QTcpSocket \
+		C:\Qt\5.12.0\msvc2017\include\QtNetwork\qtcpsocket.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonDocument \
 		..\McD\databasehandler.h
 
 debug\mainwindow.obj: ..\McD\mainwindow.cpp ..\McD\mainwindow.h \
@@ -2107,6 +2134,7 @@ debug\mainwindow.obj: ..\McD\mainwindow.cpp ..\McD\mainwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QJsonObject \
 		..\McD\standbypage.h \
 		..\McD\mydebug.h \
+		C:\Qt\5.12.0\msvc2017\include\QtCore\QDateTime \
 		ui_mainwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QVariant \
 		C:\Qt\5.12.0\msvc2017\include\QtWidgets\QApplication \
@@ -2511,7 +2539,8 @@ debug\mydatabase.obj: ..\McD\mydatabase.cpp ..\McD\mydatabase.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqlrelationaltablemodel.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqlresult.h \
-		C:\Qt\5.12.0\msvc2017\include\QtSql\qtsqlversion.h
+		C:\Qt\5.12.0\msvc2017\include\QtSql\qtsqlversion.h \
+		..\McD\basket.h
 
 debug\item.obj: ..\McD\item.cpp ..\McD\item.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QString \
@@ -3112,6 +3141,7 @@ debug\detailwindow.obj: ..\McD\detailwindow.cpp ..\McD\detailwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qsqlresult.h \
 		C:\Qt\5.12.0\msvc2017\include\QtSql\qtsqlversion.h \
+		..\McD\basket.h \
 		..\McD\globalhelper.h \
 		ui_detailwindow.h \
 		C:\Qt\5.12.0\msvc2017\include\QtCore\QVariant \
@@ -3536,6 +3566,9 @@ debug\standbypage.obj: ..\McD\standbypage.cpp ..\McD\standbypage.h \
 		C:\Qt\5.12.0\msvc2017\include\QtWidgets\qdesktopwidget.h \
 		C:\Qt\5.12.0\msvc2017\include\QtGui\qguiapplication.h \
 		C:\Qt\5.12.0\msvc2017\include\QtGui\qinputmethod.h \
+		C:\Qt\5.12.0\msvc2017\include\QtWidgets\QLabel \
+		C:\Qt\5.12.0\msvc2017\include\QtWidgets\qlabel.h \
+		C:\Qt\5.12.0\msvc2017\include\QtWidgets\qframe.h \
 		C:\Qt\5.12.0\msvc2017\include\QtGui\QMouseEvent
 
 debug\mythread.obj: ..\McD\mythread.cpp ..\McD\mythread.h \

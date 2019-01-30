@@ -118,6 +118,7 @@ void Payment::on_push_send_otp_clicked(){
     //timer->start();
     timer = new myTimer;
     connect(timer, SIGNAL(SiganlUpdateTimerUI(int)), this, SLOT(UpdateTimerUI(int)));
+    connect(this, SIGNAL(SignalStopTimer(void)), timer, SLOT(Stop(void)));
     qDebug("clicked");
 
 }
@@ -237,6 +238,7 @@ void Payment::on_push_fin_clicked(){
         // DONE : 앱으로 메세지 전송 후 연결 종료
         emit SignalSendingResult(basket);
         // DONE : Timer Thread 종료
+        emit SignalStopTimer();
         delete timer;
         // DONE: 네트워크 통신 시그널
         emit SignalFinTheTaskSucessfully(true);

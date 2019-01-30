@@ -152,7 +152,7 @@
       </size>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_large">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -265,7 +265,7 @@
       <string>장바구니 담기</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_medium">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -384,7 +384,7 @@
       </size>
      </property>
     </widget>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="label_small">
      <property name="geometry">
       <rect>
        <x>10</x>

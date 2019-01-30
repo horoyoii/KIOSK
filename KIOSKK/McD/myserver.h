@@ -4,7 +4,7 @@
 #define MYSERVER_H
 #include"payment.h"
 #include <QTcpServer>
-
+#include "mythread.h"
 class MyServer : public QTcpServer
 {
     Q_OBJECT

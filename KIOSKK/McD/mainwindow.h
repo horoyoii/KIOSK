@@ -11,6 +11,7 @@
 #include"payment.h"
 #include"standbypage.h"
 #include<mydebug.h>
+#include<QDateTime>
 namespace Ui {
 class MainWindow;
 }
@@ -23,7 +24,7 @@ private:
     bool InitFlag;
     Ui::MainWindow *ui;
     Basket *basket;
-    MyDatabase *items;
+    MyDatabase *myDatabase;
     StandByPage* stp;
     Payment *py;
 public:
@@ -34,6 +35,7 @@ public:
     void setTabIcon();
     void setLayoutSize();
     void UpdateItemListIntoWidget();
+    Q_INVOKABLE void ShowPaymentPage();
     void InitAllState(); // 한번의 과정 수행 후 키오스크 전체 초기화
     ~MainWindow();
     Q_INVOKABLE void ShowBurgerInfoDetails(QString name, int option = 0);

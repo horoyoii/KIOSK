@@ -36,6 +36,7 @@ public:
     QWidget *tab_3;
     QQuickWidget *quickWidget_3;
     QWidget *tab_4;
+    QQuickWidget *quickWidget_des;
     QLabel *basketLabel;
     QLabel *banner;
     QPushButton *btn_cancel;
@@ -92,6 +93,10 @@ public:
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
+        quickWidget_des = new QQuickWidget(tab_4);
+        quickWidget_des->setObjectName(QString::fromUtf8("quickWidget_des"));
+        quickWidget_des->setGeometry(QRect(10, 10, 851, 493));
+        quickWidget_des->setResizeMode(QQuickWidget::SizeRootObjectToView);
         tabWidget->addTab(tab_4, QString());
         basketLabel = new QLabel(centralWidget);
         basketLabel->setObjectName(QString::fromUtf8("basketLabel"));
@@ -136,15 +141,15 @@ public:
         TotalCost->setFont(font2);
         basketList_cacel = new QListWidget(centralWidget);
         basketList_cacel->setObjectName(QString::fromUtf8("basketList_cacel"));
-        basketList_cacel->setGeometry(QRect(860, 760, 151, 192));
+        basketList_cacel->setGeometry(QRect(860, 760, 151, 161));
         basketList_price = new QListWidget(centralWidget);
         basketList_price->setObjectName(QString::fromUtf8("basketList_price"));
-        basketList_price->setGeometry(QRect(670, 760, 161, 192));
+        basketList_price->setGeometry(QRect(670, 760, 161, 161));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

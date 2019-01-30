@@ -29,6 +29,7 @@ signals:
     void SignalSendingOTP(QString OTP);
     void SignalSendingResult(Basket basket);
     void SignalUpdatePassUI(void);
+    void SignalStopTimer(void);
     void SignalFinTheTaskSucessfully(bool opt);
 
 private slots:

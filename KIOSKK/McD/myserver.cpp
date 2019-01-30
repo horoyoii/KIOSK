@@ -1,5 +1,5 @@
 #include "myserver.h"
-#include "mythread.h"
+
 
 MyServer::MyServer(QObject *parent) :
     QTcpServer(parent)

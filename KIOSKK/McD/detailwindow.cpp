@@ -12,6 +12,7 @@ DetailWindow::DetailWindow(QWidget *parent, QString name, MyDatabase *items, int
     ui->setupUi(this);
     SetWindowSize();
     SetIconImage();
+    this->option = option;
 
     switch(option){
     case 0: // Page For Burger
@@ -20,11 +21,26 @@ DetailWindow::DetailWindow(QWidget *parent, QString name, MyDatabase *items, int
         SetMainImage(name);
         break;
     case 1:// Page For Drink
+        ui->label_large->setText("Large");
+        ui->label_medium->setText("Medium");
+        ui->label_small->setText("Small");
+        ui->single_text->setGeometry(120, 20, 241, 31);
+        ui->normal_text->setGeometry(120, 20, 241, 31);
+        ui->large_text->setGeometry(120, 20, 241, 31);
         SetDrinkName(name);
         SetDrinkPrice(name, items);
         SetDrinkImage(name);
         break;
     case 2:
+        ui->label_large->setText("Single");
+        ui->label_medium->hide();
+        ui->label_small->hide();
+        ui->large_text->setGeometry(120, 20, 241, 31);
+        ui->groupBox_3->hide();
+        ui->groupBox_4->hide();
+        SetDesertName(name);
+        SetDesertPrice(name, items);
+        SetDesertImage(name);
 
         break;
     }
@@ -110,8 +126,8 @@ void DetailWindow::SetDrinkPrice(QString name, MyDatabase *items){
     }
     BasicPrice = price;
     ui->Single_price->setText(QString::number(price));
-    ui->Normal_price->setText(QString::number(price + 1200));
-    ui->Larger_price->setText(QString::number(price + 1800));
+    ui->Normal_price->setText(QString::number(price + 500));
+    ui->Larger_price->setText(QString::number(price + 1000));
 }
 
 void DetailWindow::SetDrinkImage(QString name){
@@ -123,7 +139,37 @@ void DetailWindow::SetDrinkImage(QString name){
     ui->image->setScaledContents(true);
 }
 
+void DetailWindow::SetDesertName(QString name){
+    // Set Burger Name===========================================
+    BasicName = name;
+    QString FullName = GlobalHelper::GetFullName(name);
+    ui->bg_name->setText(FullName);
+    ui->large_text->setText(FullName);
+}
 
+void DetailWindow::SetDesertPrice(QString name, MyDatabase *items){
+    // Set Burger Price===========================================
+    int price =0;
+    for(auto &x : items->getArrayDesert()){
+        if(name == x.getName()){
+            price = x.getPrice();
+            break;
+        }
+    }
+    BasicPrice = price;
+    ui->Single_price->hide();
+    ui->Normal_price->hide();
+    ui->Larger_price->setText(QString::number(price));
+}
+
+void DetailWindow::SetDesertImage(QString name){
+    // Set Image=================================================
+    //qDebug()<<name;
+    QString ImageUrl = "C:\\Users\\friend\\GitHub\\KIOSK\\KIOSKK\\McD\\image\\Desert\\"+name+".jpg";
+    QPixmap pix(ImageUrl);
+    ui->image->setPixmap(pix);
+    ui->image->setScaledContents(true);
+}
 
 
 
@@ -146,7 +192,16 @@ void DetailWindow::on_btn_larger_clicked(){
     //Info to pass : name $ option $ price $
     QString arg = BasicName+"$";
     arg+="L$";
-    arg+=QString::number(BasicPrice+1800)+"$";
+    if(option == 0){
+        arg+=QString::number(BasicPrice+1800)+"$";
+        arg+="burger$";
+    }else if(option == 1){
+        arg+=QString::number(BasicPrice+1000)+"$";
+        arg+="drink$";
+    }else if(option == 2){
+        arg+=QString::number(BasicPrice)+"$";
+        arg+="desert$";
+    }
     emit SignalToMainClass(arg);
     this->close();
 }
@@ -155,7 +210,13 @@ void DetailWindow::on_btn_normal_clicked(){
 
     QString arg = BasicName+"$";
     arg+="N$";
-    arg+=QString::number(BasicPrice+1200)+"$";
+    if(option == 0){
+        arg+=QString::number(BasicPrice+1200)+"$";
+        arg+="burger$";
+    }else if(option == 1){
+        arg+=QString::number(BasicPrice+500)+"$";
+        arg+="drink$";
+    }
     emit SignalToMainClass(arg);
     this->close();
 }
@@ -164,7 +225,13 @@ void DetailWindow::on_btn_single_clicked(){
 
     QString arg = BasicName+"$";
     arg+="S$";
-    arg+=QString::number(BasicPrice)+"$";
+    if(option == 0){
+        arg+=QString::number(BasicPrice)+"$";
+        arg+="burger$";
+    }else if(option == 1){
+        arg+=QString::number(BasicPrice)+"$";
+        arg+="drink$";
+    }
     emit SignalToMainClass(arg);
     this->close();
 }

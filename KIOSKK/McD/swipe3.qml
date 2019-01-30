@@ -32,10 +32,10 @@ Item {
 
         Page2Form_3 {
             btn_bg_8.onClicked: {
-                MainWindow.ShowBurgerInfoDetails("Milk");
+                MainWindow.ShowBurgerInfoDetails("Milk", 1);
 }
             btn_bg_7.onClicked: {
-                MainWindow.ShowBurgerInfoDetails("Orange");
+                MainWindow.ShowBurgerInfoDetails("Orange", 1);
 }
 
         }

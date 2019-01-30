@@ -29,19 +29,19 @@ public:
     QLabel *large_text;
     QLabel *Larger_price;
     QPushButton *btn_larger;
-    QLabel *label;
+    QLabel *label_large;
     QLabel *label_4;
     QGroupBox *groupBox_3;
     QLabel *normal_text;
     QLabel *Normal_price;
     QPushButton *btn_normal;
-    QLabel *label_2;
+    QLabel *label_medium;
     QLabel *label_5;
     QGroupBox *groupBox_4;
     QLabel *single_text;
     QLabel *Single_price;
     QPushButton *btn_single;
-    QLabel *label_3;
+    QLabel *label_small;
     QLabel *label_6;
 
     void setupUi(QWidget *DetailWindow)
@@ -95,10 +95,10 @@ public:
         font3.setWeight(75);
         btn_larger->setFont(font3);
         btn_larger->setIconSize(QSize(140, 70));
-        label = new QLabel(groupBox_2);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 30, 111, 16));
-        label->setFont(font1);
+        label_large = new QLabel(groupBox_2);
+        label_large->setObjectName(QString::fromUtf8("label_large"));
+        label_large->setGeometry(QRect(10, 30, 111, 16));
+        label_large->setFont(font1);
         label_4 = new QLabel(groupBox_2);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(330, 30, 21, 16));
@@ -118,10 +118,10 @@ public:
         btn_normal->setObjectName(QString::fromUtf8("btn_normal"));
         btn_normal->setGeometry(QRect(430, 10, 120, 50));
         btn_normal->setFont(font3);
-        label_2 = new QLabel(groupBox_3);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 30, 64, 15));
-        label_2->setFont(font1);
+        label_medium = new QLabel(groupBox_3);
+        label_medium->setObjectName(QString::fromUtf8("label_medium"));
+        label_medium->setGeometry(QRect(10, 30, 64, 15));
+        label_medium->setFont(font1);
         label_5 = new QLabel(groupBox_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setGeometry(QRect(330, 30, 21, 16));
@@ -142,10 +142,10 @@ public:
         btn_single->setGeometry(QRect(430, 10, 120, 50));
         btn_single->setFont(font3);
         btn_single->setIconSize(QSize(140, 70));
-        label_3 = new QLabel(groupBox_4);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(10, 24, 61, 21));
-        label_3->setFont(font1);
+        label_small = new QLabel(groupBox_4);
+        label_small->setObjectName(QString::fromUtf8("label_small"));
+        label_small->setGeometry(QRect(10, 24, 61, 21));
+        label_small->setFont(font1);
         label_6 = new QLabel(groupBox_4);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setGeometry(QRect(330, 30, 20, 20));
@@ -167,19 +167,19 @@ public:
         large_text->setText(QApplication::translate("DetailWindow", "kind", nullptr));
         Larger_price->setText(QApplication::translate("DetailWindow", "price", nullptr));
         btn_larger->setText(QApplication::translate("DetailWindow", "\354\236\245\353\260\224\352\265\254\353\213\210 \353\213\264\352\270\260", nullptr));
-        label->setText(QApplication::translate("DetailWindow", "\353\235\274\354\247\200\354\204\270\355\212\270-", nullptr));
+        label_large->setText(QApplication::translate("DetailWindow", "\353\235\274\354\247\200\354\204\270\355\212\270-", nullptr));
         label_4->setText(QApplication::translate("DetailWindow", "\\", nullptr));
         groupBox_3->setTitle(QString());
         normal_text->setText(QApplication::translate("DetailWindow", "kind", nullptr));
         Normal_price->setText(QApplication::translate("DetailWindow", "price", nullptr));
         btn_normal->setText(QApplication::translate("DetailWindow", "\354\236\245\353\260\224\352\265\254\353\213\210 \353\213\264\352\270\260", nullptr));
-        label_2->setText(QApplication::translate("DetailWindow", "\354\204\270\355\212\270-", nullptr));
+        label_medium->setText(QApplication::translate("DetailWindow", "\354\204\270\355\212\270-", nullptr));
         label_5->setText(QApplication::translate("DetailWindow", "\\", nullptr));
         groupBox_4->setTitle(QString());
         single_text->setText(QApplication::translate("DetailWindow", "kind", nullptr));
         Single_price->setText(QApplication::translate("DetailWindow", "price", nullptr));
         btn_single->setText(QApplication::translate("DetailWindow", "\354\236\245\353\260\224\352\265\254\353\213\210 \353\213\264\352\270\260", nullptr));
-        label_3->setText(QApplication::translate("DetailWindow", "\353\213\250\355\222\210-", nullptr));
+        label_small->setText(QApplication::translate("DetailWindow", "\353\213\250\355\222\210-", nullptr));
         label_6->setText(QApplication::translate("DetailWindow", "\\", nullptr));
     } // retranslateUi
 

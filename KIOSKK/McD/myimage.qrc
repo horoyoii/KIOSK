@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/resource">
         <file>image/banner.jpg</file>
+        <file>image/stb.JPG</file>
     </qresource>
     <qresource prefix="/">
         <file>image/burgerImage/BTD.jpg</file>

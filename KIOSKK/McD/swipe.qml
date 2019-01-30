@@ -9,6 +9,7 @@ Item {
 
         Page1Form {
             btn_bg_6.onClicked: {
+
                 MainWindow.ShowBurgerInfoDetails("cen");
 }
             btn_bg_5.onClicked: {

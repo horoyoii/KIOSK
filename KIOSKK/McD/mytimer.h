@@ -15,6 +15,7 @@ signals:
 
 public slots:
     void mCount();
+    void Stop();
 };
 
 #endif // MYTIMER_H

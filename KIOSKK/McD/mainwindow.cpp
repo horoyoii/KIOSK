@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     // Setting MainWindow ==========================================================
-    this->setFixedSize(760, 1040);
+    this->setFixedSize(760, 1090);
     this->setStyleSheet("background-color:white;");
     py = new Payment;
     py->hide();
@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Create a Basket & Get Itmems from DB ========================================
     basket = new Basket();
-    items = new MyDatabase();
+    myDatabase = new MyDatabase();
 
     //=============================================================================
     // Update Item List
@@ -39,6 +39,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Connect ====================================================================
     QObject::connect(py, SIGNAL(SignalFinTheTaskSucessfully(bool)), this, SLOT(FinTheTotalTask(bool)));
+
+    // Time ========================================================================
+    //qDebug()<<QDateTime::currentSecsSinceEpoch();
+    qDebug()<<QDateTime::currentDateTime().toString();
+
+
 }
 
 // Slots ========================================================================
@@ -46,13 +52,21 @@ void MainWindow::UpdateBasket(QString arg){
     // update basket instance
     QStringList list;
     list = arg.split(QRegExp("\\W+"));
-    basket->AddItem(Item(list[0], list[1], list[2].toInt()));
+    basket->AddItem(Item(list[3], list[0], list[1], list[2].toInt()));
     qDebug()<<list[0];
     qDebug()<<list[1];
-    ui->basketList_name->addItem(GlobalHelper::GetFullName(list[0], list[1]));
+    qDebug()<<arg;
+
+    if(list[3] == "burger"){
+        ui->basketList_name->addItem(GlobalHelper::GetFullName(list[0], list[1]));
+    }else if(list[3] == "drink"){
+       ui->basketList_name->addItem(GlobalHelper::GetFullName(list[0], list[1], 1));
+    }else if(list[3] == "desert"){
+        ui->basketList_name->addItem(GlobalHelper::GetFullName(list[0], list[1], 2));
+    }
+
     ui->basketList_price->addItem(list[2]);
     ui->basketList_cacel->addItem("cacenl");
-
 
     signal_UpdateTotalCost();
 }
@@ -63,9 +77,12 @@ void MainWindow::UpdateTotalCost(void){
 
 void MainWindow::FinTheTotalTask(bool opt){
     if(opt){ // 결제 성공 시
+         myDatabase->InsertResult(*basket);
         MyDebug::Log("결제성공");
         InitAllState();
         stp->show(); // 화면 덮개
+        // Send the Result
+
     }else{ // 결제 실패 시
 
     }
@@ -84,6 +101,9 @@ void MainWindow::setSwipeView(){
 
     ui->quickWidget_3->rootContext()->setContextProperty("MainWindow", this);
     ui->quickWidget_3->setSource(QUrl(QStringLiteral("qrc:/swipe3.qml")));
+
+    ui->quickWidget_des->rootContext()->setContextProperty("MainWindow", this);
+    ui->quickWidget_des->setSource(QUrl(QStringLiteral("qrc:/swipe_des.qml")));
 }
 
 void MainWindow::setLayoutSize(){
@@ -92,26 +112,27 @@ void MainWindow::setLayoutSize(){
     ui->banner->setFixedSize(760, 170);
 
     ui->tabWidget->setGeometry(0, 170, 760, 590);
-    ui->basketLabel->setGeometry(0, 735, 760, 25);
+
+    ui->basketLabel->setGeometry(0, 785, 760, 25);
     ui->basketLabel->setStyleSheet("QLabel { background-color : red; color : white}");
-    ui->TotalCost->setGeometry(520, 735, 120, 25);
+    ui->TotalCost->setGeometry(520, 785, 120, 25);
     ui->TotalCost->setStyleSheet("QLabel { background-color : red; color : white}");
     ui->TotalCost->setFont(QFont("Century Gothic",14, 3));
 
 
-    ui->basketList_name->setGeometry(0, 760, 450, 200);
+    ui->basketList_name->setGeometry(0, 810, 450, 200);
     ui->basketList_name->setStyleSheet("border: 0px;");
     ui->basketList_name->setFont(QFont("Century Gothic",14));
 
-    ui->basketList_price->setGeometry(520, 760, 100, 200);
+    ui->basketList_price->setGeometry(520, 810, 100, 200);
     ui->basketList_price->setStyleSheet("border: 0px;");
     ui->basketList_price->setFont(QFont("Century Gothic",14));
 
-    ui->basketList_cacel->setGeometry(630, 760, 100, 200);
+    ui->basketList_cacel->setGeometry(630, 810, 100, 200);
     ui->basketList_cacel->setStyleSheet("border: 0px;");
     ui->basketList_cacel->setFont(QFont("Century Gothic",14));
 
-    ui->btn_cancel->setGeometry(40, 960, 300, 50);
+    ui->btn_cancel->setGeometry(410, 730, 300, 50);
 
     ui->btn_cancel->setStyleSheet("background-color: red;"
                 "border-style:solid;"
@@ -119,13 +140,14 @@ void MainWindow::setLayoutSize(){
                                   "border-color: #999999;"
                                   "border-radius: 10px;"
                                   "color: #ffffff");
-    ui->btn_order->setGeometry(410, 960, 300, 50);
+    ui->btn_order->setGeometry(40, 730, 300, 50);
     ui->btn_order->setStyleSheet("background-color: red;"
                 "border-style:solid;"
                                   "border-width: 2px;"
                                   "border-color: #999999;"
                                   "border-radius: 10px;"
                                   "color: #ffffff");
+
 
 
 }
@@ -190,13 +212,13 @@ void MainWindow::ShowBurgerInfoDetails(QString name, int option){
     DetailWindow *dw = nullptr;
     switch(option){
     case 0: //For burger Page
-        dw = new DetailWindow(nullptr, name, items);
+        dw = new DetailWindow(nullptr, name, myDatabase);
         break;
     case 1: // For Drink Page
-        dw = new DetailWindow(nullptr,name, items, 1);
+        dw = new DetailWindow(nullptr,name, myDatabase, 1);
         break;
     case 2:
-        dw = new DetailWindow(nullptr,name, items, 2);
+        dw = new DetailWindow(nullptr,name, myDatabase, 2);
         break;
     }
     // connection =======================================================================================
@@ -256,6 +278,13 @@ void MainWindow::on_btn_order_pressed(){
     qDebug()<<"Pressed";
 
 
+}
+
+void MainWindow::ShowPaymentPage(){
+    py->getBasketInfo(*basket);
+    py->setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    py->activateWindow();
+    py->show();
 }
 
 void MainWindow::on_btn_order_released(){

@@ -40,7 +40,6 @@ void MyThread::run()
 
     exec();
 }
-
 MyThread::~MyThread(){
 
 }
