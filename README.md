@@ -1,16 +1,16 @@
 # 0. Directory Structure & Brief Development Environment 
-KIOSKK    
+### KIOSKK    
 Server Appication on Windows   
   Windows 10 - 64bits, Qt 5.2.0. (MSVC 2010, 32 bit), Qtcreator 3.0.0. Developped application based on QMainWindow,  
   Touch Screen Monitor.  
   C++
 
-Order_APP(Android_java_client)  
+### Order_APP(Android_java_client)  
 Clinet App on Android  
 Android App 
 JAVA
 
-DATABSASE  
+### DATABSASE  
 MariaDB and HeidiSQL
 
 
