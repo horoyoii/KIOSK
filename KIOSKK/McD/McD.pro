@@ -36,7 +36,8 @@ SOURCES += \
     mythread.cpp \
     myserver.cpp \
     mytimer.cpp \
-    mydebug.cpp
+    mydebug.cpp \
+    finnotification.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -52,7 +53,8 @@ HEADERS += \
     mythread.h \
     myserver.h \
     mytimer.h \
-    mydebug.h
+    mydebug.h \
+    finnotification.h
 
 FORMS += \
         mainwindow.ui \
@@ -60,7 +62,8 @@ FORMS += \
     detailwindow.ui \
     backetlistitem.ui \
     payment.ui \
-    standbypage.ui
+    standbypage.ui \
+    finnotification.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

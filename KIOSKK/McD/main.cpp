@@ -13,6 +13,7 @@
 #include"mydatabase.h"
 #include"databasehandler.h"
 #include"globalhelper.h"
+#include<Windows.h>
 
 int main(int argc, char *argv[])
 {
@@ -23,6 +24,7 @@ int main(int argc, char *argv[])
     MyServer server;
     server.startServer(w.getPaymentInstance());
     QObject::connect(&server, SIGNAL(newConnectionIsComming()), &w, SLOT(openTheMainPage()));
+    //Sleep(4000);
     w.show();
 
 

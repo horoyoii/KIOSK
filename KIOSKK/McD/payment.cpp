@@ -2,6 +2,9 @@
 #include "ui_payment.h"
 #include<QDateTime>
 #include<QDebug>
+#include "finnotification.h"
+#include<windows.h>
+
 
 Payment::Payment(QWidget *parent) :
     QWidget(parent),
@@ -242,7 +245,13 @@ void Payment::on_push_fin_clicked(){
         delete timer;
         // DONE: 네트워크 통신 시그널
         emit SignalFinTheTaskSucessfully(true);
+        FinNotification *nf = new FinNotification;
+        //nf->show();
+        //Sleep(3000);
+        //nf->close();
+
         this->close();
+
     }else{
 
     }
