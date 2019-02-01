@@ -10,7 +10,7 @@ Clinet App on Android
 Android Studio   
 JAVA
 
-### DATABSASE  
+### DATABASE  
 MariaDB and HeidiSQL
 
 
