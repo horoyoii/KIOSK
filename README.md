@@ -7,7 +7,7 @@ HERE
 3. DIAGRAM
 https://blog.naver.com/demonic3540/221456607683
 
-4.Demonstration ScreenShot 
+4. Demonstration ScreenShot 
 https://blog.naver.com/demonic3540/221456627727
 
 5. Demonstration Video
