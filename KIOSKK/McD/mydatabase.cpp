@@ -98,7 +98,7 @@ std::vector<Item> MyDatabase::getArrayRecommand() const{
     return ArraySideMenu;
 }
 
-void MyDatabase::PUT(Basket basket){
+void MyDatabase::InsertResult(Basket basket){
     QSqlDatabase mDatabase;
     mDatabase = QSqlDatabase::addDatabase("QMYSQL");
     mDatabase.setHostName("localhost");
