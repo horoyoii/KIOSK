@@ -7,7 +7,7 @@ Server Appication on Windows
 
 ### Order_APP(Android_java_client)  
 Clinet App on Android  
-Android App 
+Android App   
 JAVA
 
 ### DATABSASE  
