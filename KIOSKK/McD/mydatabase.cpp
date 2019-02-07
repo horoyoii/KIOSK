@@ -6,7 +6,7 @@ MyDatabase::MyDatabase(){
     mDatabase.setHostName("localhost");
     mDatabase.setPort(3306);
     mDatabase.setUserName("root");
-    mDatabase.setPassword("whdgus22");
+    mDatabase.setPassword("####"); // 임의 설정
     if(!mDatabase.open()){
         printf("\a");
     }else
