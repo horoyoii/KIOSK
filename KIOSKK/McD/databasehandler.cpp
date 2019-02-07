@@ -11,7 +11,7 @@ void DatabaseHandler::InsertData(QString kind, QString name, int price){
     mDatabase.setHostName("localhost");
     mDatabase.setPort(3306);
     mDatabase.setUserName("root");
-    mDatabase.setPassword("whdgus22");
+    mDatabase.setPassword("####"); // 임의 
 
     if(!mDatabase.open()){
         printf("\a");
